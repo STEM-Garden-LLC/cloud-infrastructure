@@ -5,7 +5,7 @@ terraform {
 
         workspaces {
             name = "sandbox"
-            tags = ["source:cli"]
+            # tags = ["source:cli"]
         }
     }
 }
