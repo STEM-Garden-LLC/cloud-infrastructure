@@ -3,11 +3,11 @@ resource "aws_iam_role" "role" {
   assume_role_policy = data.aws_iam_policy_document.assume.json
 }
 
-resource "null_resource" "dependencies" {
-  provisioner "local-exec" {
-    command = "pip install -r ./lambda/requirements.txt -t ./lambda/app/"
-  }
-}
+# resource "null_resource" "dependencies" {
+#   provisioner "local-exec" {
+#     command = "pip install -r ./lambda/requirements.txt -t ./lambda/app/"
+#   }
+# }
 
 # resource "aws_lambda_function" "access_key_generator" {
 #   function_name    = "access-key-generator"
