@@ -20,6 +20,8 @@ resource "aws_iam_role" "role" {
 #   tags             = local.tags
 # }
 
+# Test
+
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 resource "aws_instance" "test_ec2_instance" {
   ami = var.ec2_ami
