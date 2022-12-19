@@ -40,7 +40,7 @@ variable "subnet_id" {
 variable "vpc_security_group_ids" {
   description = "List of security group IDs to associate with."
   type = string
-  default = []  
+  default = [""]  
 }
 
 variable "host_resource_group_arn" {
