@@ -28,8 +28,8 @@ resource "aws_instance" "test_ec2_instance" {
   instance_type =  var.instance_type
   
   availability_zone = var.availability_zone
-  subnet_id = var.subnet_id
-  vpc_security_group_ids = var.vpc_security_group_ids
+  # subnet_id = var.subnet_id
+  # vpc_security_group_ids = var.vpc_security_group_ids
 
   associate_public_ip_address = false
   
