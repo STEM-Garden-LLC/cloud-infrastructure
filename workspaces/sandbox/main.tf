@@ -34,10 +34,10 @@ resource "aws_instance" "test_ec2_instance" {
   associate_public_ip_address = false
   
   # Cannot be used in combination with aws_ebs_volume and aws_volume_attachment resources on a given instance.
-  ebs_block_device = {
-    volume_type = standard
-    volume_size = 20 # GiB
-  }
+  # ebs_block_device = {
+  #   volume_type = standard
+  #   volume_size = 20 # GiB
+  # }
 
   host_resource_group_arn = var.host_resource_group_arn
 
