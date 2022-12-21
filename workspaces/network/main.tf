@@ -1,17 +1,10 @@
-# resource "aws_iam_role" "role" {
-#   name               = "access-key-generator-role"
-#   assume_role_policy = data.aws_iam_policy_document.assume.json
-# }
-
 resource "aws_vpc" "vpc" {
-  #   name = format("sgllc-vpc-%s", var.region)
   # Region is not an argument to VPC, it is inherited from the AWS Provider
-
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default" # Only other option is "dedicated"
 
   enable_dns_support   = true # default is true
-  enable_dns_hostnames = true # default is __?
+  enable_dns_hostnames = false # default is false?
 
   tags = merge(
     local.common_tags,
@@ -79,7 +72,6 @@ resource "aws_route_table" "second_rt" {
 }
 
 resource "aws_route_table_association" "public_subnet_association" {
-#  for_each = { for each in aws_subnet.public_subnets : each.availability_zone => each }
  for_each = aws_subnet.public_subnets
  subnet_id      = each.value.id
  route_table_id = aws_route_table.second_rt.id
