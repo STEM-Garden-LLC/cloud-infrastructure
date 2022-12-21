@@ -14,7 +14,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true # default is __?
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
       Name = format("sgllc-vpc-%s", var.region)
     }
@@ -29,7 +29,7 @@ resource "aws_subnet" "public_subnets" {
   cidr_block        = each.value.cidr_block
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
       Name = "Public Subnet ${each.value.availability_zone}"
     }
@@ -44,7 +44,7 @@ resource "aws_subnet" "private_subnets" {
   cidr_block        = each.value.cidr_block
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
       Name = "Private Subnet ${each.value.availability_zone}"
     }
@@ -55,7 +55,7 @@ resource "aws_internet_gateway" "igw" {
  vpc_id = aws_vpc.vpc.id
  
  tags = merge(
-    local.tags,
+    local.common_tags,
     {
       Name = format("sgllc-igw-%s", var.region)
     }
@@ -71,7 +71,7 @@ resource "aws_route_table" "second_rt" {
  }
  
  tags = merge(
-    local.tags,
+    local.common_tags,
     {
       Name = "2nd Route Table"
     }
