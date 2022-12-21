@@ -21,5 +21,32 @@ resource "aws_vpc" "vpc" {
   )
 }
 
-  tags = local.tags
+resource "aws_subnet" "public_subnets" {
+  for_each = { for each in var.public_subnet_inputs : each.availability_zone => each }
+  vpc_id   = aws_vpc.vpc.id
+
+  availability_zone = format("%s%s", var.region, each.value.availability_zone)
+  cidr_block        = each.value.cidr_block
+
+  tags = merge(
+    local.tags,
+    {
+      Name = "Public Subnet ${each.value.availability_zone}"
+    }
+  )
+}
+
+resource "aws_subnet" "private_subnets" {
+  for_each = { for each in var.private_subnet_inputs : each.availability_zone => each }
+  vpc_id   = aws_vpc.vpc.id
+
+  availability_zone = format("%s%s", var.region, each.value.availability_zone)
+  cidr_block        = each.value.cidr_block
+
+  tags = merge(
+    local.tags,
+    {
+      Name = "Private Subnet ${each.value.availability_zone}"
+    }
+  )
 }
