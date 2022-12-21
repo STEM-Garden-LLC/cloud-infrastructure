@@ -50,3 +50,38 @@ resource "aws_subnet" "private_subnets" {
     }
   )
 }
+
+resource "aws_internet_gateway" "igw" {
+ vpc_id = aws_vpc.vpc.id
+ 
+ tags = merge(
+    local.tags,
+    {
+      Name = format("sgllc-igw-%s", var.region)
+    }
+  )
+}
+
+resource "aws_route_table" "second_rt" {
+ vpc_id = aws_vpc.vpc.id
+ 
+ route {
+   cidr_block = "0.0.0.0/0"
+   gateway_id = aws_internet_gateway.igw.id
+ }
+ 
+ tags = merge(
+    local.tags,
+    {
+      Name = "2nd Route Table"
+    }
+  )
+}
+
+resource "aws_route_table_association" "public_subnet_association" {
+#  for_each = { for each in aws_subnet.public_subnets : each.availability_zone => each }
+ for_each = aws_subnet.public_subnets
+ subnet_id      = each.value.id
+ route_table_id = aws_route_table.second_rt.id
+}
+
