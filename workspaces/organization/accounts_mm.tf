@@ -17,8 +17,8 @@ resource "aws_organizations_account" "mastery_math_dev" {
 ### Staging
 
 resource "aws_organizations_account" "mm_staging" {
-  name      = "Mastery Math Staging"
-  email     = "mm-staging@stemgarden.org"
+  name      = "Mastery Math Prod"
+  email     = "masterymath@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.mastery_math.id
 }
 
