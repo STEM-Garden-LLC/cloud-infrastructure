@@ -30,7 +30,7 @@ resource "aws_organizations_account" "mm_staging_real" {
 
 resource "aws_organizations_account" "mastery_math_stage" {
   name      = "Mastery Math Stage"
-  email     = "mastery_math+stage@stemgarden.org"
+  email     = "masterymath+stage@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.mastery_math.id
 }
 
@@ -38,12 +38,12 @@ resource "aws_organizations_account" "mastery_math_stage" {
 
 resource "aws_organizations_account" "mm_prod" {
   name      = "Mastery Math Prod"
-  email     = "masterymath@stemgarden.org"
+  email     = "aws+users@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.mastery_math.id
 }
 
 resource "aws_organizations_account" "mastery_math_prod" {
   name      = "Mastery Math Prod"
-  email     = "mastery_math+prod@stemgarden.org"
+  email     = "masterymath+prod@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.mastery_math.id
 }
