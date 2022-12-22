@@ -1,19 +1,23 @@
+# ORGANIZATION
+
 resource "aws_organizations_organization" "sgllc_org" {
+  feature_set = "ALL"
 
-    feature_set = "ALL"
-
+  #   aws_service_access_principals = [
+  #     "cloudtrail.amazonaws.com",
+  #     "config.amazonaws.com",
+  #   ]
 }
 
-# ACCOUNTS
+# ORGANIZATIONAL UNITS -- LAYER 1
 
-resource "aws_organizations_account" "stem_garden_llc" {
-
-  name  = "STEM Garden LLC"
-  email = "nigel@stemgarden.org"
-  #   role_name = "Admin"
-
-# management_account
+resource "aws_organizations_organizational_unit" "mastery_math" {
+  name      = "Mastery Math"
+  parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
 
-# }
+
+
+
+
 
