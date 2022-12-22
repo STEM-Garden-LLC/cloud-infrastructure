@@ -5,6 +5,8 @@ resource "aws_organizations_account" "sghp_dev" {
   name      = "STEM Garden Homepage Dev"
   email     = "aws+dev@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.stem_garden_homepage.id
+  role_name = "Admin"
+
 }
 
 # DO NOT IMPORT. SUSPENDED. CLOSE PENDING 90 DAY WIAT
@@ -20,6 +22,8 @@ resource "aws_organizations_account" "sghp_stage" {
   name      = "STEM Garden Homepage Stage"
   email     = "aws+stage@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.stem_garden_homepage.id
+  role_name = "Admin"
+
 }
 
 # DO NOT IMPORT. PLAN TO SUSPEND & CLOSE PENDING 90 DAY WIAT & QUOTA RESET
@@ -35,6 +39,8 @@ resource "aws_organizations_account" "sghp_prod" {
   name      = "STEM Garden Homepage Prod"
   email     = "aws+prod@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.stem_garden_homepage.id
+  role_name = "Admin"
+
 }
 
 # DO NOT IMPORT. SUSPENDED. CLOSE PENDING 90 DAY WIAT
