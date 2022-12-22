@@ -13,7 +13,7 @@ resource "aws_organizations_organization" "sgllc_org" {
 
 resource "aws_organizations_organizational_unit" "mastery_math" {
   name      = "Mastery Math"
-  parent_id = aws_organizations_organization.sgllc_org.id
+  parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
 
 
