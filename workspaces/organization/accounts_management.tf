@@ -5,7 +5,7 @@
 resource "aws_organizations_account" "stem_garden_llc" {
   name  = "STEM Garden LLC"
   email = "nigel@stemgarden.org"
-  role_name = "Admin"
+  # role_name = "Admin"  # Should be set to "Admin" for all new accounts but adding it retroactively necessiutates a destroy & recreate which we want to avoid due to quotas.
 }
 
 ## USER & IAM MANAGEMENT ACCOUNT
