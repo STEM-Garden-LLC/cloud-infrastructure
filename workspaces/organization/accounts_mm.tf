@@ -3,8 +3,8 @@
 ### Dev
 
 resource "aws_organizations_account" "mm_dev" {
-  name      = "Mastery Math Dev"
-  email     = "mm-dev@stemgarden.org"
+  name  = "Mastery Math Dev"
+  email = "mm-dev@stemgarden.org"
   # parent_id = aws_organizations_organizational_unit.mastery_math.id
   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
