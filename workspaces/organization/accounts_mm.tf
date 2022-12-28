@@ -22,6 +22,7 @@ resource "aws_organizations_account" "mm_staging" {
   name      = "Mastery Math Prod"
   email     = "masterymath@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.mastery_math.id
+  close_on_deletion = true
 }
 
 resource "aws_organizations_account" "mm_staging_real" {
