@@ -16,13 +16,12 @@ resource "aws_organizations_organizational_unit" "projects" {
   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
 
-resource "aws_organizations_organizational_unit" "org_sandbox" {
-  name      = "Org Sandbox"
+resource "aws_organizations_organizational_unit" "sandbox" {
+  name      = "Sandbox"
   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
 
-# ORGANIZATIONAL UNITS -- LAYER 2
-
+# PROJECTS OU -- LAYER 2
 
 resource "aws_organizations_organizational_unit" "mastery_math" {
   name      = "Mastery Math"
@@ -34,7 +33,11 @@ resource "aws_organizations_organizational_unit" "stem_garden_homepage" {
   parent_id = aws_organizations_organizational_unit.projects.id
 }
 
+# SANDBOX OU -- LAYER 2
 
-
+resource "aws_organizations_organizational_unit" "key_cloak" {
+  name      = "KeyCloak"
+  parent_id = aws_organizations_organizational_unit.sandbox.id
+}
 
 
