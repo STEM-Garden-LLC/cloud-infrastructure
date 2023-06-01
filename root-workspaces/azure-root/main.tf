@@ -24,7 +24,7 @@ module "test_storage_account" {
   # but the local path option is simple and will work for now. 
   source = "../../modules/storage-account/azure"
 
-  storage_account_name = "teststorageaccount"
+  storage_account_name = "teststorageaccount2"
   containers = {
     test1 = {
       container_name = "test-container-1"
