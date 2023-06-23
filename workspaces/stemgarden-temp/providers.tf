@@ -22,6 +22,9 @@ terraform {
 // default provider
 provider "aws" {
   region = "us-east-2"
+  shared_config_files      = ["/Users/tf_user/.aws/conf"]
+  shared_credentials_files = ["/Users/tf_user/.aws/creds"]
+  profile                  = "personal-account-admin"
 }
 
 // Cloudfront can only use SSL certificates created in us-east-1
