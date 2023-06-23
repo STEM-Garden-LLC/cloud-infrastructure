@@ -1,7 +1,7 @@
 # S3 bucket for website.
 resource "aws_s3_bucket" "www_bucket" {
   bucket = "www.${var.bucket_name}"
-  acl    = "public-read"
+#   acl    = "public-read"
   policy = templatefile("templates/s3-read-policy.json", { bucket = "www.${var.bucket_name}" })
 
   cors_rule {
@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "www_bucket" {
 # S3 bucket for redirecting non-www to www.
 resource "aws_s3_bucket" "root_bucket" {
   bucket = var.bucket_name
-  acl    = "public-read"
+#   acl    = "public-read"
   policy = templatefile("templates/s3-read-policy.json", { bucket = var.bucket_name })
 
   website {
