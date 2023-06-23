@@ -2,7 +2,7 @@
 resource "aws_s3_bucket" "www_bucket" {
   bucket = "www.${var.bucket_name}"
   acl    = "public-read"
-  policy = templatefile("templates/s3-read/policy.json", { bucket = "www.${var.bucket_name}" })
+  policy = templatefile("templates/s3-read-policy.json", { bucket = "www.${var.bucket_name}" })
 
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
