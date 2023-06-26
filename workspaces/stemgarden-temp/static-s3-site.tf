@@ -84,7 +84,9 @@ resource "aws_s3_bucket_website_configuration" "root_bucket" {
   bucket = aws_s3_bucket.root_bucket.id
   index_document { suffix = "index.html" }
   error_document { key = "error.html" }
-  redirect_all_requests_to = "https://www.${var.domain_name}"
+  redirect_all_requests_to {
+    host_name = "https://www.${var.domain_name}"
+  }
 }
 
 # CORS Configuration
