@@ -85,7 +85,6 @@ resource "aws_s3_bucket_website_configuration" "root_bucket" {
   index_document { suffix = "index.html" }
   error_document { key = "error.html" }
   redirect_all_requests_to = "https://www.${var.domain_name}"
-  tags = var.common_tags
 }
 
 # CORS Configuration
@@ -97,7 +96,6 @@ resource "aws_s3_bucket_website_configuration" "root_bucket" {
 #     allowed_origins = ["https://www.${var.domain_name}"]
 #     max_age_seconds = 3000
 #   }
-#   tags = var.common_tags
 # }
 
 # Bucket Ownership
@@ -106,7 +104,6 @@ resource "aws_s3_bucket_ownership_controls" "root_bucket" {
   rule {
     object_ownership = "BucketOwnerPreferred"
   }
-  tags = var.common_tags
 }
 
 # Public Access
@@ -116,7 +113,6 @@ resource "aws_s3_bucket_public_access_block" "root_bucket" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
-  tags = var.common_tags
 }
 
 # Bucket ACL
@@ -127,7 +123,6 @@ resource "aws_s3_bucket_acl" "root_bucket" {
   ]
   bucket = aws_s3_bucket.root_bucket.id
   acl    = "public-read"
-  tags = var.common_tags
 }
 
 resource "aws_s3_bucket_policy" "root_bucket" {
