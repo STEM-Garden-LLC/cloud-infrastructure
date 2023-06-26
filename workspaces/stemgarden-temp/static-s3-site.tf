@@ -52,7 +52,7 @@ resource "aws_s3_bucket_acl" "www_bucket" {
   acl    = "public-read"
 }
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+resource "aws_s3_bucket_policy" "www_bucket" {
   bucket = aws_s3_bucket.www_bucket.id
   policy = jsonencode({
     Version = "2012-10-17"
@@ -130,7 +130,7 @@ resource "aws_s3_bucket_acl" "root_bucket" {
   tags = var.common_tags
 }
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+resource "aws_s3_bucket_policy" "root_bucket" {
   bucket = aws_s3_bucket.root_bucket.id
   policy = jsonencode({
     Version = "2012-10-17"
