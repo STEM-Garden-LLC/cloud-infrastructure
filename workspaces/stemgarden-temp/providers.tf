@@ -11,7 +11,7 @@ terraform {
   cloud {
     # The following is provided as documentation only. 
     # This workspace is configured to use the VCS workflow, meaning that this config will be ignored and what is in the workspace settings will actually be in effect. 
-    organization = "steg-garden-llc"
+    organization = "stem-garden-llc"
     hostname = "app.terraform.io" // same as default
     workspaces {
       name = "stemgarden-temp"
