@@ -9,4 +9,5 @@ terraform {
 
 provider "tfe" {
   token = var.token
+  organization = "stem-garden-llc"
 }
