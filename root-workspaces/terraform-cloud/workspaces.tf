@@ -10,7 +10,7 @@ resource "tfe_workspace" "mastery_math_prod" {
   working_directory = "/workspaces/mastery-math-prod"
   trigger_patterns = ["/workspaces/mastery-math-prod/*"]
   vcs_repo {
-    identifier = "stem-garden-llc/cloud-infrastructure"
+    identifier = "STEM-Garden-LLC/cloud-infrastructure"
     github_app_installation_id = "ghain-vi62wYKcwTykbwke"
   }
 
