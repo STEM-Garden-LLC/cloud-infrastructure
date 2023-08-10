@@ -9,7 +9,7 @@ module "test_storage_account" {
   containers = {
     test1 = {
       container_name = "test-container-1"
-      access_type    = "blob"
+    #   access_type    = "blob"
     },
     test2 = {
       container_name = "test-container-2"
