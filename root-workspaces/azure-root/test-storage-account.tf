@@ -4,6 +4,7 @@ module "test_storage_account" {
   # but the local path option is simple and will work for now. 
   source = "../../modules/storage-account/azure"
 
+  resource_group_name = azurerm_resource_group.rg.name
   storage_account_name = var.storage_account_name
   containers = {
     test1 = {
