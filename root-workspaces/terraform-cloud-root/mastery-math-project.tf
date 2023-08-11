@@ -3,7 +3,7 @@ resource "tfe_project" "mastery_math_project" {
 }
 
 resource "tfe_workspace" "mastery_math_prod" {
-  name = "terraform-cloud-root"
+  name = "mastery-math-prod"
   description = "Production infrastructure hosting masterymath.org" 
   working_directory             = "root-workspaces/mastery-math-prod"
   
@@ -19,7 +19,7 @@ resource "tfe_workspace" "mastery_math_prod" {
 }
 
 resource "tfe_workspace" "mastery_math_stage" {
-  name = "terraform-cloud-root"
+  name = "mastery-math-stage"
   description = "Staging infrastructure hosting masterymath.org" 
   working_directory             = "workspaces/mastery-math-stage"
   
@@ -35,7 +35,7 @@ resource "tfe_workspace" "mastery_math_stage" {
 }
 
 resource "tfe_workspace" "mastery_math_dev" {
-  name = "terraform-cloud-root"
+  name = "mastery-math-dev"
   description = "Development infrastructure hosting masterymath.org" 
   working_directory             = "workspaces/mastery-math-dev"
   
