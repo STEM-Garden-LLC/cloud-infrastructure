@@ -1,6 +1,6 @@
 # Configure the Azure provider
 terraform {
-  required_version = ">= 1.1.0"
+  required_version = ">= 1.5.0"
 
   cloud {
     hostname     = "app.terraform.io"
