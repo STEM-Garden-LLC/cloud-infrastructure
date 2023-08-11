@@ -18,39 +18,37 @@ resource "tfe_workspace" "mastery_math_prod" {
   }
 }
 
-# resource "tfe_workspace" "aws_root" {
-#   name = "aws-root"
-#   description = "Shared Core AWS resources. Not related to any one project." 
-#   working_directory             = "root-workspaces/aws-root"
+resource "tfe_workspace" "mastery_math_stage" {
+  name = "terraform-cloud-root"
+  description = "Staging infrastructure hosting masterymath.org" 
+  working_directory             = "root-workspaces/terraform-cloud-root"
   
-#   file_triggers_enabled  = true
-#   queue_all_runs                = true
-#   force_delete                  = false
+  file_triggers_enabled  = true
+  queue_all_runs                = true
+  force_delete                  = false
   
-#   vcs_repo {
-#     github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
-#     identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
-#     ingress_submodules         = false 
-#   }
-# }
+  vcs_repo {
+    github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
+    identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
+    ingress_submodules         = false 
+  }
+}
 
-# resource "tfe_workspace" "azure_root" {
-#   name = "azure-root"
-#   description = "Shared Core Azure resources. Not related to any one project." 
-#   working_directory             = "root-workspaces/azure-root"
+resource "tfe_workspace" "mastery_math_dev" {
+  name = "terraform-cloud-root"
+  description = "Development infrastructure hosting masterymath.org" 
+  working_directory             = "root-workspaces/terraform-cloud-root"
   
-#   file_triggers_enabled  = true
-#   queue_all_runs                = true
-#   force_delete                  = false
+  file_triggers_enabled  = true
+  queue_all_runs                = true
+  force_delete                  = false
   
-#   vcs_repo {
-#     github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
-#     identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
-#     ingress_submodules         = false 
-#   }
-# }
-
-
+  vcs_repo {
+    github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
+    identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
+    ingress_submodules         = false 
+  }
+}
 
 
 # resource "tfe_project" "mastery_math" {
