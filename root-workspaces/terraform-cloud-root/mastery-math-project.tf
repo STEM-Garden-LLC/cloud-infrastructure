@@ -5,7 +5,7 @@ resource "tfe_project" "mastery_math_project" {
 resource "tfe_workspace" "mastery_math_prod" {
   name = "terraform-cloud-root"
   description = "Production infrastructure hosting masterymath.org" 
-  working_directory             = "root-workspaces/terraform-cloud-root"
+  working_directory             = "root-workspaces/mastery-math-prod"
   
   file_triggers_enabled  = true
   queue_all_runs                = true
@@ -21,7 +21,7 @@ resource "tfe_workspace" "mastery_math_prod" {
 resource "tfe_workspace" "mastery_math_stage" {
   name = "terraform-cloud-root"
   description = "Staging infrastructure hosting masterymath.org" 
-  working_directory             = "root-workspaces/terraform-cloud-root"
+  working_directory             = "workspaces/mastery-math-stage"
   
   file_triggers_enabled  = true
   queue_all_runs                = true
@@ -37,7 +37,7 @@ resource "tfe_workspace" "mastery_math_stage" {
 resource "tfe_workspace" "mastery_math_dev" {
   name = "terraform-cloud-root"
   description = "Development infrastructure hosting masterymath.org" 
-  working_directory             = "root-workspaces/terraform-cloud-root"
+  working_directory             = "workspaces/mastery-math-dev"
   
   file_triggers_enabled  = true
   queue_all_runs                = true
