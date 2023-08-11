@@ -50,18 +50,3 @@ resource "tfe_workspace" "azure_root" {
   }
 }
 
-
-
-
-# resource "tfe_project" "mastery_math" {
-#   name = "Mastery Math"
-# }
-
-# resource "tfe_project" "stem_garden_homepage" {
-#   name = "STEM Garden Homepage"
-# }
-
-# resource "tfe_project" "chess_club_host" {
-#   name = "Chess Club Host"
-# }
-
