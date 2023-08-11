@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "tfe" {
-  token = var.token
+  # token = var.token   # Set with env var TFE_TOKEN instead
   organization = "stem-garden-llc"
 }
