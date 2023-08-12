@@ -1,18 +1,9 @@
 resource "tfe_project" "mastery_math_project" {
-  name = "Mastery Math"
-#   name = title(replace(local.project_name, "-", " "))
+#   name = "Mastery Math"
+  name = title(replace(local.project_name, "-", " "))
 }
 
 locals {
-#   workspace_list = [
-#     {
-#         name = "workspace made with for each 1",
-#         working_directory = "workspaces/mastery-math/test1"
-#     },{
-#         name = "workspace made with for each 2",
-#         working_directory = "workspaces/mastery-math/test2"
-#     }
-#   ]
     project_name = "mastery-math"
     workspace_list = toset([ "test1", "test2", "test3"])
 }
