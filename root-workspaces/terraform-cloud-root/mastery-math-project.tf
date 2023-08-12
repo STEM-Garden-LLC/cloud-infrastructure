@@ -14,7 +14,7 @@ locals {
 #     }
 #   ]
     project_name = "mastery-math"
-    workspace_list = toset([ "test1, test2, test3"])
+    workspace_list = toset([ "test1", "test2", "test3"])
 }
 
 resource "tfe_workspace" "workspace_list" {
