@@ -1,26 +1,29 @@
 resource "tfe_project" "mastery_math_project" {
   name = "Mastery Math"
+#   name = title(replace(local.project_name, "-", " "))
 }
 
 locals {
-  workspace_list = [
-    {
-        name = "workspace made with for each 1",
-        working_directory = "workspaces/mastery-math/test1"
-    },{
-        name = "workspace made with for each 2",
-        working_directory = "workspaces/mastery-math/test2"
-    }
-  ]
+#   workspace_list = [
+#     {
+#         name = "workspace made with for each 1",
+#         working_directory = "workspaces/mastery-math/test1"
+#     },{
+#         name = "workspace made with for each 2",
+#         working_directory = "workspaces/mastery-math/test2"
+#     }
+#   ]
+    project_name = "mastery-math"
+    workspace_list = toset([ "test1, test2, test3"])
 }
 
 resource "tfe_workspace" "workspace_list" {
-  for_each = tomap(local.workspace_list)
+  for_each = local.workspace_list
 
-  name = each.value.name
+  name = "${local.project_name}-${each.value}"
   project_id = tfe_project.mastery_math_project.id
-  description = "Production infrastructure hosting masterymath.org" 
-  working_directory             = each.value.working_directory
+  description = "Infrastructure hosting the ${each.value} environment of masterymath.org" 
+  working_directory             = "workspaces/${local.project_name}/${each.value}"
   
   file_triggers_enabled  = true
   queue_all_runs                = true
