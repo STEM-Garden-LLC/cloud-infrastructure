@@ -3,7 +3,7 @@ variable "project_name" {
 }
 
 variable "workspace_list" {
-  type        = string
+  type        = list(string)
   description = "List of workspaces belonging to this project. Names will be prefixed with project name."
 }
 
