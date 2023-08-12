@@ -7,7 +7,7 @@ resource "tfe_project" "module_project" {
 }
 
 resource "tfe_workspace" "workspaces_from_list" {
-  for_each = var.workspace_list
+  for_each = toset(var.workspace_list)
 
   name              = "${var.project_name}-${each.value}"
   project_id        = tfe_project.module_project.id
