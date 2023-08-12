@@ -5,7 +5,7 @@ resource "tfe_project" "mastery_math_project" {
 resource "tfe_workspace" "mastery_math_prod" {
   name = "mastery-math-prod"
   description = "Production infrastructure hosting masterymath.org" 
-  working_directory             = "root-workspaces/mastery-math/prod"
+  working_directory             = "workspaces/mastery-math/prod"
   
   file_triggers_enabled  = true
   queue_all_runs                = true
