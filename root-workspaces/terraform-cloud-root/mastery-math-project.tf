@@ -3,7 +3,7 @@ resource "tfe_project" "mastery_math_project" {
 }
 
 locals {
-  workspace_list = {
+  workspace_list = [
     {
         name = "workspace made with for each 1",
         working_directory = "workspaces/mastery-math/test1"
@@ -11,11 +11,11 @@ locals {
         name = "workspace made with for each 2",
         working_directory = "workspaces/mastery-math/test2"
     }
-  }
+  ]
 }
 
 resource "tfe_workspace" "workspace_list" {
-  for_each = local.workspace_list
+  for_each = toset(local.workspace_list)
 
   name = each.value.name
   project_id = tfe_project.mastery_math_project.id
