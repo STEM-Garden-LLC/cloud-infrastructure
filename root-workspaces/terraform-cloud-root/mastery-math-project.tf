@@ -15,7 +15,7 @@ locals {
 }
 
 resource "tfe_workspace" "workspace_list" {
-  for_each = toset(local.workspace_list)
+  for_each = tomap(local.workspace_list)
 
   name = each.value.name
   project_id = tfe_project.mastery_math_project.id
