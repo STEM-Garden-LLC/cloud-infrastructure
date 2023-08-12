@@ -4,6 +4,7 @@ resource "tfe_project" "cloud_provider_roots" {
 
 resource "tfe_workspace" "terraform_cloud_root" {
   name = "terraform-cloud-root"
+  project_id = tfe_project.cloud_provider_roots.id
   description = "Structure of TFC Organization." 
   working_directory             = "root-workspaces/terraform-cloud-root"
   
@@ -20,6 +21,7 @@ resource "tfe_workspace" "terraform_cloud_root" {
 
 resource "tfe_workspace" "aws_root" {
   name = "aws-root"
+  project_id = tfe_project.cloud_provider_roots.id
   description = "Shared Core AWS resources. Not related to any one project." 
   working_directory             = "root-workspaces/aws-root"
   
@@ -36,6 +38,7 @@ resource "tfe_workspace" "aws_root" {
 
 resource "tfe_workspace" "azure_root" {
   name = "azure-root"
+  project_id = tfe_project.cloud_provider_roots.id
   description = "Shared Core Azure resources. Not related to any one project." 
   working_directory             = "root-workspaces/azure-root"
   
