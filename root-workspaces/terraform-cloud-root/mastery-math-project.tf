@@ -2,6 +2,37 @@ resource "tfe_project" "mastery_math_project" {
   name = "Mastery Math"
 }
 
+locals {
+  workspace_list = [
+    {
+        name = "workspace made with for each 1",
+        working_directory = "workspaces/mastery-math/test1"
+    },{
+        name = "workspace made with for each 2",
+        working_directory = "workspaces/mastery-math/test2"
+    }
+  ]
+}
+
+resource "tfe_workspace" "workspace_list" {
+  for_each = local.workspace_list
+
+  name = each.value.name
+  project_id = tfe_project.mastery_math_project.id
+  description = "Production infrastructure hosting masterymath.org" 
+  working_directory             = each.value.working_directory
+  
+  file_triggers_enabled  = true
+  queue_all_runs                = true
+  force_delete                  = false
+  
+  vcs_repo {
+    github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
+    identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
+    ingress_submodules         = false 
+  }
+}
+
 resource "tfe_workspace" "mastery_math_prod" {
   name = "mastery-math-prod"
   project_id = tfe_project.mastery_math_project.id
