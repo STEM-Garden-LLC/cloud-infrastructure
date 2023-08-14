@@ -22,18 +22,18 @@ resource "tfe_workspace" "mastery_math_old" {
   }
 }
 
-resource "tfe_workspace" "mastery_math_prod" {
-  name = "mastery-math-prod"
-  description = "Production infrastructure hosting masterymath.org" 
-  working_directory             = "root-workspaces/mastery-math/prod"
+# resource "tfe_workspace" "mastery_math_prod" {
+#   name = "mastery-math-prod"
+#   description = "Production infrastructure hosting masterymath.org" 
+#   working_directory             = "root-workspaces/mastery-math/prod"
   
-  file_triggers_enabled  = true
-  queue_all_runs                = true
-  force_delete                  = true
+#   file_triggers_enabled  = true
+#   queue_all_runs                = true
+#   force_delete                  = true
   
-  vcs_repo {
-    github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
-    identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
-    ingress_submodules         = false 
-  }
-}
+#   vcs_repo {
+#     github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
+#     identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
+#     ingress_submodules         = false 
+#   }
+# }
