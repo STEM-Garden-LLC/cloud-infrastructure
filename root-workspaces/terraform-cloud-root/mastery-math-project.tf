@@ -1,9 +1,9 @@
-# module "mastery_math_project_and_workspaces" {
-#   source = "../../modules/project-with-workspaces"
+module "mastery_math_project_and_workspaces" {
+  source = "../../modules/project-with-workspaces"
 
-#   project_name   = "mastery-math"
-#   workspace_list = ["dev", "stage", "prod", "shared"]
-# }
+  project_name   = "mastery-math"
+  workspace_list = ["dev", "stage", "prod", "shared"]
+}
 
 resource "tfe_workspace" "mastery_math_old" {
   name = "mastery-math-old"
@@ -21,19 +21,3 @@ resource "tfe_workspace" "mastery_math_old" {
     ingress_submodules         = false
   }
 }
-
-# resource "tfe_workspace" "mastery_math_prod" {
-#   name = "mastery-math-prod"
-#   description = "Production infrastructure hosting masterymath.org" 
-#   working_directory             = "root-workspaces/mastery-math/prod"
-  
-#   file_triggers_enabled  = true
-#   queue_all_runs                = true
-#   force_delete                  = true
-  
-#   vcs_repo {
-#     github_app_installation_id = "ghain-vi62wYKcwTykbwke" 
-#     identifier                 = "STEM-Garden-LLC/cloud-infrastructure" 
-#     ingress_submodules         = false 
-#   }
-# }
