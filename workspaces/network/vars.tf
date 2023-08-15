@@ -11,18 +11,18 @@ variable "region" {
 
 # SUBNET INPUTS
 
-variable "public_subnet_inputs" {
-  description = "Inputs for the Public Subnet as objects."
-  type = list(object({
-    availability_zone = string
-    cidr_block        = string
-  }))
-}
+# variable "public_subnet_inputs" {
+#   description = "Inputs for the Public Subnet as objects."
+#   type = list(object({
+#     availability_zone = string
+#     cidr_block        = string
+#   }))
+# }
 
-variable "private_subnet_inputs" {
-  description = "Inputs for the Private Subnet as objects."
-  type = list(object({
-    availability_zone = string
-    cidr_block        = string
-  }))
-}
+# variable "private_subnet_inputs" {
+#   description = "Inputs for the Private Subnet as objects."
+#   type = list(object({
+#     availability_zone = string
+#     cidr_block        = string
+#   }))
+# }
