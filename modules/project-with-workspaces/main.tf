@@ -14,7 +14,7 @@ resource "tfe_workspace" "workspaces_from_list" {
   description       = "Infrastructure hosting the ${each.key} environment of masterymath.org"
   working_directory = "${var.working_directory_prefix}/${var.project_name}/${each.key}"
 
-  trigger_patterns = [ "/${var.working_directory_prefix}/${var.project_name}/${each.key}" ]
+  trigger_patterns = [ "/${var.working_directory_prefix}/${var.project_name}/${each.key}/**/*" ]
   file_triggers_enabled = true
   queue_all_runs        = true
   force_delete          = false
