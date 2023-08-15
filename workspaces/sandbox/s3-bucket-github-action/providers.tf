@@ -7,7 +7,7 @@ terraform {
         organization = "stem-garden-llc"
 
         workspaces {
-            name = "sandbox"
+            name = "sandbox-s3-bucket-github-actions"
             # tags = ["source:cli"]
         }
     }
