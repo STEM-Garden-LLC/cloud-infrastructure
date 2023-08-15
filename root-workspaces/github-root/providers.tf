@@ -10,6 +10,7 @@ terraform {
 # Configure the GitHub Provider
 provider "github" {
   owner = "STEM-Garden-LLC"
+  token = var.github_token
 
 #   app_auth {
 #     # id              = var.app_id              # or `GITHUB_APP_ID`
@@ -22,6 +23,10 @@ provider "github" {
 # resource "github_membership" "membership_for_user_x" {
 #   # ...
 # }
+
+variable "github_token" {
+  type = string
+}
 
 resource "github_repository" "tfc_test_repo" {
   name        = "TFC Test Repo"
