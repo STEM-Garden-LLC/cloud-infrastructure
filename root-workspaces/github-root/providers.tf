@@ -29,7 +29,7 @@ variable "github_token" {
 }
 
 resource "github_repository" "tfc_test_repo" {
-  name        = "TFC Test Repo"
+  name        = "TFC-test-repo"
   description = "My awesome codebase"
 
   visibility = "public"
