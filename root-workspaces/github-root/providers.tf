@@ -9,7 +9,8 @@ terraform {
 
 # Configure the GitHub Provider
 provider "github" {
-  owner = "stem-garden-llc"
+#   owner = "stem-garden-llc"
+  owner = "nigel-f-wilson"
   token = var.github_token
 
 #   app_auth {
