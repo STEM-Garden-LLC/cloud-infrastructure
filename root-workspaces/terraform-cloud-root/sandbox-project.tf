@@ -1,4 +1,4 @@
-module "mastery_math_project_and_workspaces" {
+module "sandbox_project_and_workspaces" {
   source = "../../modules/project-with-workspaces"
 
   project_name   = "sandbox"
