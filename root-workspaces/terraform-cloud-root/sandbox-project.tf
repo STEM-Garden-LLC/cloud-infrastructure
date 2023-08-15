@@ -3,9 +3,9 @@ module "sandbox_project_and_workspaces" {
 
   project_name   = "sandbox"
   workspace_list = [
-    "s3_bucket_github_actions",
-    "static_site_s3_cf_r53",
-    "next_on_amplify",
-    "node_on_ec2"
+    "s3-bucket-github-actions",
+    "static-site-s3-cf-r53",
+    "next-on-amplify",
+    "node-on-ec2"
   ]
 }
