@@ -12,7 +12,7 @@ terraform {
     organization = "stem-garden-llc"
     hostname = "app.terraform.io" 
     workspaces {
-      name = "mastery-math-stage"
+      name = "mastery-math-old"
     }
   }
 }
