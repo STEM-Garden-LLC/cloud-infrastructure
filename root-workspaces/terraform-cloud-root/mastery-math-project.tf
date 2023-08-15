@@ -6,7 +6,7 @@ module "mastery_math_project_and_workspaces" {
 }
 
 resource "tfe_workspace" "mastery_math_old" {
-  name = "mastery-math-old"
+  name        = "mastery-math-old"
   description = "Production infrastructure hosting masterymath.org generated with stand alone resources prior to creation of the project-with-workspaces module."
 
   working_directory = "workspaces/mastery-math/old"
