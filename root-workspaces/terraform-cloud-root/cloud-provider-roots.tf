@@ -2,6 +2,7 @@ resource "tfe_project" "cloud_provider_roots" {
   name = "Cloud Provider Roots"
 }
 
+# Terraform Cloud
 resource "tfe_workspace" "terraform_cloud_root" {
   name              = "terraform-cloud-root"
   project_id        = tfe_project.cloud_provider_roots.id
@@ -19,6 +20,7 @@ resource "tfe_workspace" "terraform_cloud_root" {
   }
 }
 
+# AWS Root
 resource "tfe_workspace" "aws_root" {
   name              = "aws-root"
   project_id        = tfe_project.cloud_provider_roots.id
@@ -36,6 +38,7 @@ resource "tfe_workspace" "aws_root" {
   }
 }
 
+# Azure Root
 resource "tfe_workspace" "azure_root" {
   name              = "azure-root"
   project_id        = tfe_project.cloud_provider_roots.id
@@ -53,3 +56,21 @@ resource "tfe_workspace" "azure_root" {
   }
 }
 
+# # GitHub Root
+resource "tfe_workspace" "github_root" {
+  name        = "github-root"
+  description = "Config of GitHub resources such as actions, environment variables, and secrets."
+
+  project_id        = tfe_project.cloud_provider_roots.id
+  working_directory = "root-workspaces/github-root"
+
+  file_triggers_enabled = true
+  queue_all_runs        = true
+  force_delete          = false
+
+  vcs_repo {
+    github_app_installation_id = "ghain-vi62wYKcwTykbwke"
+    identifier                 = "STEM-Garden-LLC/cloud-infrastructure"
+    ingress_submodules         = false
+  }
+}
