@@ -1,4 +1,15 @@
 terraform {
+  required_version = ">= 1.5.0"
+
+  cloud {
+    hostname     = "app.terraform.io"
+    organization = "stem-garden-llc"
+
+    workspaces {
+      name = "github-root"
+    }
+  }
+
   required_providers {
     github = {
       source  = "integrations/github"
