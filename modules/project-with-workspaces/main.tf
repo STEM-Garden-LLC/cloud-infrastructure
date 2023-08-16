@@ -11,7 +11,7 @@ resource "tfe_workspace" "workspaces_from_list" {
 
   name              = "${var.project_name}-${each.value}"
   project_id        = tfe_project.module_project.id
-  description       = "Infrastructure hosting the ${each.key} environment of masterymath.org"
+  description       = "Infrastructure hosting the ${each.key} environment of ${var.domain_name}"
   working_directory = "${var.working_directory_prefix}/${var.project_name}/${each.key}"
 
   trigger_patterns = [ "/${var.working_directory_prefix}/${var.project_name}/${each.key}/**/*" ]
