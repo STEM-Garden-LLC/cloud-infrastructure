@@ -39,35 +39,34 @@ terraform {
 #   type = string
 # }
 
-# provider "github" {
-#   owner = "stem-garden-llc"
-#   token = var.github_token
-# }
+provider "github" {
+  owner = "stem-garden-llc"
+}
 
 
 # Must Specify to use this provider
 # Configure the GitHub Provider to provision resources in nigel-f-wilson user account
-provider "github" {
+# provider "github" {
 #   alias = "personal"
 
-  owner = "nigel-f-wilson"
-  token = var.github_token
-}
+#   owner = "nigel-f-wilson"
+#   token = var.github_token
+# }
 
 
 
 
 # Test Resource
-# resource "github_repository" "tfc_test_repo" {
-#   name        = "TFC-test-repo"
-#   description = "My awesome codebase"
+resource "github_repository" "tfc_test_repo" {
+  name        = "TFC-test-repo"
+  description = "My awesome codebase"
 
-#   visibility = "public"
-#   has_issues = true
-# #   has_discussions = true
-# #   has_projects = true
-#   allow_squash_merge = true
-#   allow_rebase_merge = true
+  visibility = "public"
+  has_issues = true
+#   has_discussions = true
+#   has_projects = true
+  allow_squash_merge = true
+  allow_rebase_merge = true
 
 
-# }
+}
