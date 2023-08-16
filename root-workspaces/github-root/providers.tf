@@ -35,9 +35,9 @@ terraform {
 
 # Default
 # Configure the GitHub Provider to provision resources in stem-garden-llc account
-variable "github_token" {
-  type = string
-}
+# variable "github_token" {
+#   type = string
+# }
 
 # provider "github" {
 #   owner = "stem-garden-llc"
