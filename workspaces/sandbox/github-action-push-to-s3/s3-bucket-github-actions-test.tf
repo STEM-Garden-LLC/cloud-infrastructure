@@ -33,6 +33,15 @@ resource "aws_s3_bucket_policy" "github_actions_test" {
   })
 }
 
+# Ownership Controls
+resource "aws_s3_bucket_ownership_controls" "github_actions_test" {
+  bucket = aws_s3_bucket.github_actions_test.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+# Public Access Block
 resource "aws_s3_bucket_public_access_block" "github_actions_test" {
   bucket = aws_s3_bucket.github_actions_test.id
 
@@ -40,4 +49,15 @@ resource "aws_s3_bucket_public_access_block" "github_actions_test" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
+}
+
+# Public ACL
+resource "aws_s3_bucket_acl" "github_actions_test" {
+  depends_on = [
+    aws_s3_bucket_ownership_controls.github_actions_test,
+    aws_s3_bucket_public_access_block.github_actions_test,
+  ]
+
+  bucket = aws_s3_bucket.github_actions_test.id
+  acl    = "public-read-write"
 }
