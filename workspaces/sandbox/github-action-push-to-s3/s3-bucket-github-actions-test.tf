@@ -23,11 +23,11 @@ resource "aws_s3_bucket_policy" "github_actions_test" {
     Version = "2012-10-17"
     Statement = [
       {
-        "Sid": "PublicPutObject",
-        "Effect": "Allow",
-        "Principal": "*",
-        "Action": "s3:PutObject",
-        "Resource": "${aws_s3_bucket.github_actions_test.arn}/*"
+        "Sid" : "PublicPutObject",
+        "Effect" : "Allow",
+        "Principal" : "*",
+        "Action" : "s3:PutObject",
+        "Resource" : "${aws_s3_bucket.github_actions_test.arn}/*"
       }
     ]
   })

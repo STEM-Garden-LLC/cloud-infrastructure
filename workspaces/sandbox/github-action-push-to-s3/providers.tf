@@ -2,9 +2,9 @@ terraform {
   required_version = "~> 1.3"
 
   cloud {
-    hostname = "app.terraform.io" 
+    hostname     = "app.terraform.io"
     organization = "stem-garden-llc"
-    
+
     workspaces {
       name = "sandbox-github-action-push-to-s3"
     }
@@ -16,9 +16,9 @@ terraform {
       version = "~> 5.4"
     }
     github = {
-      source  = "integrations/github"
-      version = "~> 5.0"
-      configuration_aliases = [ github.personal ]
+      source                = "integrations/github"
+      version               = "~> 5.0"
+      configuration_aliases = [github.personal]
     }
   }
 }
@@ -26,7 +26,7 @@ terraform {
 // Default AWS provider
 // Cloudfront can only use SSL certificates created in us-east-1
 provider "aws" {
-  region = "us-east-1"
+  region                   = "us-east-1"
   shared_config_files      = ["/Users/nigelwilson/.aws/config"]
   shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
 }
