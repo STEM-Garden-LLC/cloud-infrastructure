@@ -3,7 +3,7 @@ module "s3_static_site" {
 
   domain_name = "masterymath.org"
 
-  use_preexisting_bucket = true
+  use_preexisting_bucket = false
   bucket_name = "masterymath.org"
 
   common_tags = {
