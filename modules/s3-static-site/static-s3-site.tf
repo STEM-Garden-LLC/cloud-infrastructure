@@ -88,15 +88,15 @@ resource "aws_s3_bucket_website_configuration" "root_bucket" {
 }
 
 # CORS Configuration
-# resource "aws_s3_bucket_cors_configuration" "root_bucket" {
-#   bucket = aws_s3_bucket.www_bucket.id
-#   cors_rule {
-#     allowed_headers = ["Authorization", "Content-Length"]
-#     allowed_methods = ["GET", "POST"]
-#     allowed_origins = ["https://www.${var.domain_name}"]
-#     max_age_seconds = 3000
-#   }
-# }
+resource "aws_s3_bucket_cors_configuration" "root_bucket" {
+  bucket = aws_s3_bucket.www_bucket.id
+  cors_rule {
+    allowed_headers = ["Authorization", "Content-Length"]
+    allowed_methods = ["GET", "POST"]
+    allowed_origins = ["https://www.${var.domain_name}"]
+    max_age_seconds = 3000
+  }
+}
 
 # Bucket Ownership
 resource "aws_s3_bucket_ownership_controls" "root_bucket" {
