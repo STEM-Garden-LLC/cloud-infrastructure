@@ -1,3 +1,17 @@
+module "static_site_s3" {
+  source = "../../../modules/s3-static-site"
+
+  tfc_project = "sandbox"
+  tfc_workspace = "react-with-vite-test"
+
+  domain_name = "test.stemgarden.org"
+
+  use_preexisting_bucket = false
+  
+  
+}
+
+
 
 # # Bucket
 # resource "aws_s3_bucket" "react_with_vite_test" {
