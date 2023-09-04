@@ -8,7 +8,11 @@ module "static_site_s3" {
 
   use_preexisting_bucket = false
   
-  
+  common_tags = {
+    provisioned_by = "terraform_cloud"
+    project = "sandbox"
+    workspace = "react-with-vite-test"
+  }
 }
 
 
