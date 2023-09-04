@@ -8,15 +8,15 @@ resource "aws_s3_bucket" "static_site_bucket" {
 }
 
 # Website Configuration
-resource "aws_s3_bucket_website_configuration" "www_bucket" {
-  bucket = aws_s3_bucket.www_bucket.id
+resource "aws_s3_bucket_website_configuration" "static_site_bucket" {
+  bucket = aws_s3_bucket.static_site_bucket.id
   index_document { suffix = "index.html" }
   error_document { key = "error.html" }
 }
 
 # CORS Configuration
 resource "aws_s3_bucket_cors_configuration" "example" {
-  bucket = aws_s3_bucket.www_bucket.id
+  bucket = aws_s3_bucket.static_site_bucket.id
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
     allowed_methods = ["GET", "POST"]
@@ -26,16 +26,16 @@ resource "aws_s3_bucket_cors_configuration" "example" {
 }
 
 # Bucket Ownership
-resource "aws_s3_bucket_ownership_controls" "www_bucket" {
-  bucket = aws_s3_bucket.www_bucket.id
+resource "aws_s3_bucket_ownership_controls" "static_site_bucket" {
+  bucket = aws_s3_bucket.static_site_bucket.id
   rule {
     object_ownership = "BucketOwnerPreferred"
   }
 }
 
 # Public Access
-resource "aws_s3_bucket_public_access_block" "www_bucket" {
-  bucket = aws_s3_bucket.www_bucket.id
+resource "aws_s3_bucket_public_access_block" "static_site_bucket" {
+  bucket = aws_s3_bucket.static_site_bucket.id
   block_public_acls       = false
   block_public_policy     = false
   ignore_public_acls      = false
@@ -43,17 +43,17 @@ resource "aws_s3_bucket_public_access_block" "www_bucket" {
 }
 
 # Bucket ACL
-resource "aws_s3_bucket_acl" "www_bucket" {
+resource "aws_s3_bucket_acl" "static_site_bucket" {
   depends_on = [
-    aws_s3_bucket_ownership_controls.www_bucket,
-    aws_s3_bucket_public_access_block.www_bucket,
+    aws_s3_bucket_ownership_controls.static_site_bucket,
+    aws_s3_bucket_public_access_block.static_site_bucket,
   ]
-  bucket = aws_s3_bucket.www_bucket.id
+  bucket = aws_s3_bucket.static_site_bucket.id
   acl    = "public-read"
 }
 
-resource "aws_s3_bucket_policy" "www_bucket" {
-  bucket = aws_s3_bucket.www_bucket.id
+resource "aws_s3_bucket_policy" "static_site_bucket" {
+  bucket = aws_s3_bucket.static_site_bucket.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -62,7 +62,7 @@ resource "aws_s3_bucket_policy" "www_bucket" {
         "Effect": "Allow",
         "Principal": "*",
         "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::${aws_s3_bucket.www_bucket.bucket}/*"
+        "Resource": "arn:aws:s3:::${aws_s3_bucket.static_site_bucket.bucket}/*"
       }
     ]
   })
@@ -92,7 +92,7 @@ resource "aws_s3_bucket_policy" "www_bucket" {
 
 # # CORS Configuration
 # resource "aws_s3_bucket_cors_configuration" "root_bucket" {
-#   bucket = aws_s3_bucket.www_bucket.id
+#   bucket = aws_s3_bucket.root_bucket.id
 #   cors_rule {
 #     allowed_headers = ["Authorization", "Content-Length"]
 #     allowed_methods = ["GET", "POST"]
