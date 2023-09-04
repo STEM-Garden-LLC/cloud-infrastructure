@@ -1,10 +1,3 @@
-
-
-
-# # # # # # # # # # # # # # ## # # # # # # # # # # 
-# # Cloudfront distribution for main s3 site.    #
-# # # # # # # # # # # # # # ## # # # # # # # # # # 
-
 resource "aws_cloudfront_distribution" "www_s3_distribution" {
   origin {
     # domain_name = aws_s3_bucket.www_bucket.website_endpoint
