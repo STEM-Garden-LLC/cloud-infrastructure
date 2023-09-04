@@ -10,10 +10,6 @@ resource "github_repository" "react_with_vite_test" {
   vulnerability_alerts = true
 }
 
-# data "aws_s3_bucket" "bucket_to_push_to" {
-#   bucket = "bucket.test.com"
-# }
-
 resource "github_actions_secret" "aws_s3_bucket" {
   repository      = github_repository.react_with_vite_test.name
   secret_name     = "AWS_S3_BUCKET"
