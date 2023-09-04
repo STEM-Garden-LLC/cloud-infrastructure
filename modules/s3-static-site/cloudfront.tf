@@ -1,6 +1,5 @@
-resource "aws_cloudfront_distribution" "www_s3_distribution" {
+resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    # domain_name = aws_s3_bucket.www_bucket.website_endpoint
     domain_name = aws_s3_bucket_website_configuration.static_site_bucket.website_endpoint
     origin_id   = "S3-.${local.complete_domain}"
 
@@ -41,8 +40,8 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
 
     viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
-    default_ttl            = 31536000
-    max_ttl                = 31536000
+    default_ttl            = 300
+    max_ttl                = 600  # Reduce this once testing is complete. Keep an Eye on Cost!
     compress               = true
   }
 
