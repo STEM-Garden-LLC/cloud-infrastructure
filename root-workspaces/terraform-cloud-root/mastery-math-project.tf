@@ -1,5 +1,5 @@
 module "mastery_math_project_and_workspaces" {
-  source = "../../modules/project-with-workspaces"
+  source = "../../modules/tfc-project-with-workspaces"
 
   project_name   = "mastery-math"
   domain_name    = "masterymath.org"

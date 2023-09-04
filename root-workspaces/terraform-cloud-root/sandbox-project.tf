@@ -1,5 +1,5 @@
 module "sandbox_project_and_workspaces" {
-  source = "../../modules/project-with-workspaces"
+  source = "../../modules/tfc-project-with-workspaces"
 
   project_name   = "sandbox"
   domain_name    = "example.com"
