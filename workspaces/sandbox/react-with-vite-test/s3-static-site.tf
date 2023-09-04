@@ -4,7 +4,8 @@ module "static_site_s3" {
   tfc_project = "sandbox"
   tfc_workspace = "react-with-vite-test"
 
-  domain_name = "test.stemgarden.org"
+  apex_domain = "stemgarden.org"
+  sub_domain = "test.stemgarden.org"
 
   use_preexisting_bucket = false
   

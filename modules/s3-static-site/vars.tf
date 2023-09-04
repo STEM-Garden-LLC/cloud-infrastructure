@@ -8,20 +8,16 @@ variable "tfc_workspace" {
   description = "The name of the terraform cloud workspace this module is to be applied within."
 }
 
-variable "domain_name" {
+variable "apex_domain" {
   type        = string
-  description = "The domain name for the website."
+  description = "The apex domain used to retreive the Hosted Zone data."
 }
 
-variable "use_preexisting_bucket" {
-  type        = bool
-  description = "Whether to treat the bucket_name as the name of an existing bucket or to create a new bucket with that name."
+variable "sub_domain" {
+  type        = string
+  description = "Optional subdomain to prefix on the apex domain to create the address to point to CloudFront distribution."
 }
 
-# variable "bucket_name" {
-#   type        = string
-#   description = "The name of the S3 bucket to serve website contents from."
-# }
 
 variable "common_tags" {
   description = "Common tags you want applied to all components."
@@ -29,4 +25,5 @@ variable "common_tags" {
 
 locals {
   bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
+  complete_domain = "${var.sub_domain}-${var.apex_domain}"
 }
