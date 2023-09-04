@@ -1,3 +1,13 @@
+variable "tfc_project" {
+  type        = string
+  description = "The name of the terraform cloud project this module is to be applied within."
+}
+
+variable "tfc_workspace" {
+  type        = string
+  description = "The name of the terraform cloud workspace this module is to be applied within."
+}
+
 variable "domain_name" {
   type        = string
   description = "The domain name for the website."
