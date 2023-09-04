@@ -6,7 +6,7 @@ terraform {
     organization = "stem-garden-llc"
 
     workspaces {
-      name = "sandbox-github-action-push-to-s3"
+      name = "sandbox-react-with-vite-test"
     }
   }
 
