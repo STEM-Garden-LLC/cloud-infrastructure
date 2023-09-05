@@ -13,8 +13,8 @@ resource "github_repository" "react_with_vite_test" {
 resource "github_actions_secret" "aws_s3_bucket" {
   repository      = github_repository.react_with_vite_test.name
   secret_name     = "AWS_S3_BUCKET"
-  plaintext_value = var.bucket_to_push_to
-  # plaintext_value  = aws_s3_bucket.bucket_to_push_to.bucket
+  # plaintext_value = var.bucket_to_push_to
+  plaintext_value  = aws_s3_bucket.static_site_bucket.id
 }
 
 resource "github_actions_secret" "aws_access_key_id" {
