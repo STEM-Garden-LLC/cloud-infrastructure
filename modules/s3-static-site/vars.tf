@@ -27,3 +27,7 @@ locals {
   bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
   complete_domain = "${var.sub_domain}-${var.apex_domain}"
 }
+
+output "bucket_name" {
+  value = aws_s3_bucket.static_site_bucket.id
+}
