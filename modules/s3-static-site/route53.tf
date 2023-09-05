@@ -44,29 +44,20 @@ resource "aws_route53_record" "root-a" {
 # }
 
 # # Uncomment the below block if you are doing certificate validation using DNS instead of Email.
-resource "aws_route53_record" "cert_validation" {
+# resource "aws_route53_record" "cert_validation" {
+#   for_each = {
+#     for dvo in aws_acm_certificate.ssl_certificate.domain_validation_options : dvo.domain_name => {
+#       name    = dvo.resource_record_name
+#       record  = dvo.resource_record_value
+#       type    = dvo.resource_record_type
+#       zone_id = data.aws_route53_zone.main.zone_id
+#     }
+#   }
 
-#  This is the code in the original demo. 
-#  for_each = {
-#    for dvo in aws_acm_certificate.ssl_certificate.domain_validation_options : dvo.domain_name => {
-#      name    = dvo.resource_record_name
-#      record  = dvo.resource_record_value
-#      type    = dvo.resource_record_type
-#      zone_id = data.aws_route53_zone.main.zone_id
-#    }
-#  }
-#  allow_overwrite = true
-#  name            = each.value.name
-#  records         = [each.value.record]
-#  ttl             = 60
-#  type            = each.value.type
-#  zone_id         = each.value.zone_id
-
-  allow_overwrite = true
-  name            = aws_acm_certificate.ssl_certificate.domain_validation_options[0].name
-  records         = [aws_acm_certificate.ssl_certificate.domain_validation_options[0].record]
-  ttl             = 60
-  type            = aws_acm_certificate.ssl_certificate.domain_validation_options[0].type
-  zone_id         = aws_acm_certificate.ssl_certificate.domain_validation_options[0].zone_id
-
-}
+#   allow_overwrite = true
+#   name            = each.value.name
+#   records         = [each.value.record]
+#   ttl             = 60
+#   type            = each.value.type
+#   zone_id         = each.value.zone_id
+# }
