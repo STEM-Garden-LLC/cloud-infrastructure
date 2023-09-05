@@ -20,7 +20,7 @@ resource "aws_route53_zone" "main" {
 # }
 
 resource "aws_route53_record" "root-a" {
-  zone_id = data.aws_route53_zone.main.zone_id
+  zone_id = aws_route53_zone.main.zone_id
   name    = local.complete_domain
   type    = "A"
 
@@ -54,7 +54,7 @@ resource "aws_route53_record" "cert_validation" {
       name    = dvo.resource_record_name
       record  = dvo.resource_record_value
       type    = dvo.resource_record_type
-      zone_id = data.aws_route53_zone.main.zone_id
+      zone_id = aws_route53_zone.main.zone_id
     }
   }
 
