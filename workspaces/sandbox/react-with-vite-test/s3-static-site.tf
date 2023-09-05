@@ -7,8 +7,6 @@ module "static_site_s3" {
   apex_domain = "stemgarden.org"
   sub_domain = "test.stemgarden.org"
 
-  use_preexisting_bucket = false
-  
   common_tags = {
     provisioned_by = "terraform_cloud"
     project = "sandbox"
