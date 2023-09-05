@@ -5,7 +5,7 @@ module "static_site_s3" {
   tfc_workspace = "react-with-vite-test"
 
   apex_domain = "stemgarden.org"
-  sub_domain = "test.stemgarden.org"
+  sub_domain = "test"
 
   common_tags = {
     provisioned_by = "terraform_cloud"

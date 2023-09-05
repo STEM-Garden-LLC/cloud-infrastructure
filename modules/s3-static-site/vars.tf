@@ -25,7 +25,7 @@ variable "common_tags" {
 
 locals {
   bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
-  complete_domain = "${var.sub_domain}-${var.apex_domain}"
+  complete_domain = "${var.sub_domain}.${var.apex_domain}"
 }
 
 output "bucket_name" {
