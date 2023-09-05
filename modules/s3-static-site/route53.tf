@@ -1,7 +1,6 @@
 # Route 53 for domain
 data "aws_route53_zone" "main" {
   name = var.apex_domain
-  tags = var.common_tags
 }
 
 # resource "aws_route53_record" "root-a" {
