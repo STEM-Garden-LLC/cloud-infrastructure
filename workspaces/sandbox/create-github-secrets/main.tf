@@ -10,10 +10,10 @@
 # Some var sets (such as AWS creds) are currently applied to all workspaces but the GH vars must be added manually. 
 
 # Testing Process:
-# Added starting config for repo and secrets. Apply failed due to provider authentication.
+# Added starting config for repo and secrets. Apply failed due to provider authentication. Error: PATCH https://api.github.com/repos//test-repo-for-tfc-secret-creation: 404 Not Found []
 # In TFC UI add var set with GH Org App Registration. Apply still fails for same reason.
 # In TFC UI add var set with GH Personal Access Token. Apply succeeds.
-# Manually remove both var sets, add net test secret, and confirm that apply fails.
+# Manually remove both var sets, add net test secret, and confirm that apply fails. -> Confirmed
 # Add code to TFC root workspace to associate vars and apply. Check TFC UI to verify manually deleted var set is re-created in test workspace. 
 # Attempt apply with only Personal Access Token and not Org App Registration. 
 
@@ -38,9 +38,9 @@ resource "github_repository" "test_repo" {
   
 }
 
-data "github_actions_public_key" "example_public_key" {
-  repository = github_repository.test_repo.name
-}
+# data "github_actions_public_key" "example_public_key" {
+#   repository = github_repository.test_repo.name
+# }
 
 resource "github_actions_secret" "aws_access_key_id" {
   repository       = github_repository.test_repo.name
