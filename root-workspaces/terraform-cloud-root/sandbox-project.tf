@@ -8,6 +8,8 @@ module "sandbox_project_and_workspaces" {
     # "static-site-s3-cf-r53",
     # "next-on-amplify",
     # "node-on-ec2",
-    "react-with-vite-test"
+    "react-with-vite-test",
+    "create-github-secrets",
+    "amazon-certificate-manager-test"
   ]
 }
