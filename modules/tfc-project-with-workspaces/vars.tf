@@ -16,3 +16,7 @@ variable "working_directory_prefix" {
   description = "Default is workspaces but sometimes must be overidden with root-workspaces"
   default = "workspaces"
 }
+
+output "project_name" {
+  value = var.project_name
+}
