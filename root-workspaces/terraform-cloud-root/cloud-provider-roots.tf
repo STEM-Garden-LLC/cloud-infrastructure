@@ -2,7 +2,11 @@ resource "tfe_project" "cloud_provider_roots" {
   name = "Cloud Provider Roots"
 }
 
-# Terraform Cloud
+
+############################
+##  Terraform Cloud Root  ##
+############################
+
 resource "tfe_workspace" "terraform_cloud_root" {
   name              = "terraform-cloud-root"
   project_id        = tfe_project.cloud_provider_roots.id
@@ -21,7 +25,10 @@ resource "tfe_workspace" "terraform_cloud_root" {
   }
 }
 
-# AWS Root
+#####################
+##     AWS Root    ##
+#####################
+
 resource "tfe_workspace" "aws_root" {
   name              = "aws-root"
   project_id        = tfe_project.cloud_provider_roots.id
@@ -40,7 +47,10 @@ resource "tfe_workspace" "aws_root" {
   }
 }
 
-# Azure Root
+#####################
+##   Azure Root    ##
+#####################
+
 resource "tfe_workspace" "azure_root" {
   name              = "azure-root"
   project_id        = tfe_project.cloud_provider_roots.id
@@ -59,7 +69,10 @@ resource "tfe_workspace" "azure_root" {
   }
 }
 
-# # GitHub Root
+#####################
+##   GitHub Root   ##
+#####################
+
 resource "tfe_workspace" "github_root" {
   name        = "github-root"
   description = "Config of GitHub resources such as actions, environment variables, and secrets."
@@ -78,3 +91,7 @@ resource "tfe_workspace" "github_root" {
     ingress_submodules         = false
   }
 }
+
+
+
+
