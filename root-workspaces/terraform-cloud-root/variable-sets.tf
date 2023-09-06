@@ -2,6 +2,8 @@
 ##  GitHub  ##
 ##############
 
+# Personal Access Token
+
 resource "tfe_variable_set" "gh_credentials" {
   name          = "GitHub Credentials"
   description   = "Some description."
@@ -20,6 +22,9 @@ resource "tfe_variable" "gh_personal_access_token" {
   category        = "env"
   variable_set_id = tfe_variable_set.gh_credentials.id
 }
+
+
+# App Registration
 
 resource "tfe_variable_set" "gh_org_app_registration" {
   name          = "GitHub TFC App Installation"

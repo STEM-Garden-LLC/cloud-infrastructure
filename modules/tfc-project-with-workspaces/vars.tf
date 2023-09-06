@@ -20,3 +20,7 @@ variable "working_directory_prefix" {
 output "project_name" {
   value = var.project_name
 }
+
+output "project_id" {
+  value = tfe_project.module_project.id
+}
