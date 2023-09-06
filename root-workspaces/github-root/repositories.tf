@@ -1,15 +1,4 @@
 
-# React with Vite Test
-resource "github_repository" "react_with_vite_test" {
-  name        = "react-with-vite-test"
-  description = "Simple React starter app with Vite dev server and build system."
-
-  visibility = "public"
-  has_downloads = true
-  has_issues = true
-  has_projects = true
-  vulnerability_alerts = true
-}
 
 # data "aws_s3_bucket" "bucket_to_push_to" {
 #   bucket = "bucket.test.com"
