@@ -1,6 +1,14 @@
 # 1. Create test repo.
 # 2. Create repo secrets for AWS credentials.
 
+variable "aws_access_key_id" {
+  type = string
+}
+
+variable "aws_secret_access_key" {
+  type = string
+}
+
 resource "github_repository" "test_repo" {
   name        = "test-repo-for-tfc-secret-creation"
   description = "A repo that will be used to isolate the process for creating GitHub secrets via TFC"
