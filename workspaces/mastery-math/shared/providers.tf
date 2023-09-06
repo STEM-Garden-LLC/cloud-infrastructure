@@ -23,4 +23,9 @@ provider "aws" {
   region = "us-east-1"
   shared_config_files      = ["/Users/nigelwilson/.aws/config"]
   shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
+
+  default_tags = {
+    project        = "masterymath.org"
+    provisioned_by = "terraform_cloud"
+  }
 }

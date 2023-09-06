@@ -9,8 +9,5 @@ resource "aws_route53_zone" "mastery_math" {
   delegation_set_id = null
   force_destroy     = null
   name              = "masterymath.org"
-  tags = {
-    project        = "stemgarden.org"
-    provisioned_by = "terraform_cloud"
-  }
+  
 }
