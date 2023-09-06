@@ -5,7 +5,7 @@
 resource "tfe_variable_set" "gh_credentials" {
   name          = "Test Varset"
   description   = "Some description."
-  organization  = tfe_organization.test.name
+  organization  = tfe_organization.sgllc.name
 }
 
 variable "github_token" {
