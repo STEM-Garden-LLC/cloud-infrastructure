@@ -24,8 +24,11 @@ provider "aws" {
   shared_config_files      = ["/Users/nigelwilson/.aws/config"]
   shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
 
-  default_tags = {
-    project        = "masterymath.org"
-    provisioned_by = "terraform_cloud"
+  default_tags {
+    tags = {
+      provisioned_by = "Terraform Cloud"
+      project        = "Mastery Math"
+      workspace      = "Shared"
+    }
   }
 }
