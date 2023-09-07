@@ -44,3 +44,17 @@ module "stem_garden_project_and_workspaces" {
 
 
 }
+
+##########################
+##   Chess Club Host    ##
+##########################
+
+module "chess_club_host_project_and_workspaces" {
+  source = "../../modules/tfc-project-with-workspaces"
+
+  project_name   = "chess-club-host"
+  domain_name    = "chessclubhost.com"
+  workspace_list = ["dev", "stage", "prod", "shared"]
+
+
+}
