@@ -3,6 +3,19 @@ import {
   id = "Z04644452DUB6MD4Z75A7"
 }
 
+resource "aws_route53_zone" "org_stemgarden" {
+  comment           = "Managed by Terraform"
+  delegation_set_id = null
+  force_destroy     = null
+  name              = "stemgarden.org"
+  tags = {
+    project = "stemgarden.org"
+  }
+  tags_all = {
+    project = "stemgarden.org"
+  }
+}
+
 resource "aws_acm_certificate" "org_stemgarden" {
   certificate_authority_arn = null
   certificate_body          = null
