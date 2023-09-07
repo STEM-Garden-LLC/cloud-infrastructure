@@ -36,7 +36,7 @@ resource "tfe_project_variable_set" "aws_key_to_masterymath" {
   project_id    = module.mastery_math_project_and_workspaces.project_id
 }
 
-resource "tfe_project_variable_set" "aws_key_to_masterymath" {
+resource "tfe_project_variable_set" "aws_key_to_chessclubhost" {
   variable_set_id = tfe_variable_set.aws_credentials_nfw.id
   project_id    = module.chess_club_host_project_and_workspaces.project_id
 }
