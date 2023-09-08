@@ -1,4 +1,12 @@
-variable "root_domain_name" {
+variable "apex_domain" {
   type    = string
-  default = "chessclubhost.com"
 }
+
+variable "subject_alternative_names" {
+  type    = set(string)
+  default = []
+}
+
+
+
+
