@@ -16,6 +16,9 @@ resource "aws_route53_zone" "org_stemgarden" {
   }
 }
 
+# The following certificate was created and validated in the console and imported. 
+# Later on the "dns-certificate" module was created to handle this process in one apply.
+
 resource "aws_acm_certificate" "org_stemgarden" {
   certificate_authority_arn = null
   certificate_body          = null

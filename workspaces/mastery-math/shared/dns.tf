@@ -11,3 +11,10 @@ resource "aws_route53_zone" "mastery_math" {
   name              = "masterymath.org"
   
 }
+
+module "acm_certificate_for_masterymath" {
+  source = "../../../modules/dns-certificate"
+
+  apex_domain = "masterymath.org"
+  subject_alternative_names = [ "*.masterymath.org" ]
+}

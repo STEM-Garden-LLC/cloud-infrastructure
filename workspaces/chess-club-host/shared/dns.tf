@@ -11,3 +11,10 @@ resource "aws_route53_zone" "com_chessclubhost" {
   tags              = {}
   tags_all          = {}
 }
+
+module "acm_certificate_for_chessclubhost" {
+  source = "../../../modules/dns-certificate"
+
+  apex_domain = "chessclubhost.com"
+  subject_alternative_names = [ "*.chessclubhost.com" ]
+}
