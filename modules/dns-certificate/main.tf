@@ -8,7 +8,7 @@ data "aws_route53_zone" "hosted_zone" {
 resource "aws_acm_certificate" "cert" {
   domain_name               = var.apex_domain
   subject_alternative_names = var.subject_alternative_names
-  key_algorithm             = "RSA"
+  key_algorithm             = "RSA_2048"
   validation_method         = "DNS"
  
   options {
