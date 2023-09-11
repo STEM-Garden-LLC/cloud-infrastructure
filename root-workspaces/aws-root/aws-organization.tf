@@ -7,10 +7,10 @@ import {
   id = "o-c2jf6qw1ou"
 }
 
-import {
-  to = aws_organizations_organizational_unit.root_ou
-  id = "r-p2mx"
-}
+# import {
+#   to = aws_organizations_organizational_unit.root_ou
+#   id = "r-p2mx"
+# }
 
 import {
   to = aws_organizations_account.stem_garden_llc
