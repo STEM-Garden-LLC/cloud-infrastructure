@@ -34,4 +34,12 @@ provider "aws" {
 # Configure the GitHub Provider to provision resources in stem-garden-llc account
 provider "github" {
   owner = "stem-garden-llc"
+
+  default_tags {
+    tags = {
+      provisioned_by = "Terraform Cloud"
+      project        = "sandbox"
+      workspace      = "react-with-vite-test"
+    }
+  }
 }
