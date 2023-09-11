@@ -29,11 +29,11 @@ resource "aws_organizations_organizational_unit" "stem_garden_ou" {
   tags_all  = {}
 }
 
-# No Accounts to import here, will create using TF
-# import {
-#   to = aws_organizations_account.stem_garden_dev
-#   id = "111111111111"
-# }
+resource "aws_organizations_account" "stem_garden_prod" {
+  name  = "STEM Garden Prod"
+  email = "aws+sg-prod@stemgarden.org"
+  parent_id = aws_organizations_organizational_unit.stem_garden_ou.id
+}
 
 ####################
 ##  Mastery Math  ##
