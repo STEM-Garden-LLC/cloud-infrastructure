@@ -14,7 +14,8 @@ module "sandbox_project_and_workspaces" {
     # "node-on-ec2",
     "react-with-vite-test",
     "create-github-secrets",
-    "amazon-certificate-manager-test"
+    "amazon-certificate-manager-test",
+    "rds-test"
   ]
 }
 
