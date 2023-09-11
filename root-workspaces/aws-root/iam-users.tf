@@ -16,6 +16,10 @@ module "users" {
   user = each.value
 }
 
+output "users" {
+  value = module.users.password
+}
+
 # resource "aws_iam_user" "test" {
 #   name          = "test-user"
 #   force_destroy = true
