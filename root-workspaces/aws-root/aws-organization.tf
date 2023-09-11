@@ -78,4 +78,16 @@ resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
 resource "aws_organizations_account" "account" {
   name  = "Club Host Tool Prod"
   email = "chessclubhost+prod@stemgarden.org"
+  parent_id = aws_organizations_organizational_unit.chessclubhost_ou.id
 }
+
+import {
+  to = aws_organizations_account.chessclubhost_prod
+  id = "636021045783"
+}
+
+# resource "aws_organizations_account" "chessclubhost_ou" {
+#   name  = "Club Host Tool Prod"
+#   email = "chessclubhost+prod@stemgarden.org"
+#   parent_id = aws_organizations_organizational_unit.chessclubhost_ou.id
+# }
