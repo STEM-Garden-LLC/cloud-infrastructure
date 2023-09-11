@@ -23,15 +23,6 @@ terraform {
 # Configure the GitHub Provider to provision resources in stem-garden-llc account
 provider "github" {
   owner = "stem-garden-llc"
-
-  default_tags {
-    tags = {
-      Owner            = "SGLLC"
-      Project          = "Cloud Provider Roots"
-      Workspace        = "GitHub Root"
-      Provisioned_via  = "Terraform Cloud"
-    }
-  }
 }
 
 # Must Specify to use this provider
