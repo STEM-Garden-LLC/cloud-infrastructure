@@ -86,6 +86,23 @@ import {
   id = "636021045783"
 }
 
+resource "aws_organizations_account" "chessclubhost_prod" {
+  close_on_deletion          = null
+  create_govcloud            = null
+  email                      = "chessclubhost+prod@stemgarden.org"
+  iam_user_access_to_billing = null
+  name                       = "Club Host Tool Prod"
+  parent_id                  = "r-p2mx"
+  role_name                  = null
+  tags                       = {}
+  tags_all = {
+    Owner           = "SGLLC"
+    Project         = "Cloud Provider Roots"
+    Provisioned_via = "Terraform Cloud"
+    Workspace       = "AWS Root"
+  }
+}
+
 # resource "aws_organizations_account" "chessclubhost_ou" {
 #   name  = "Club Host Tool Prod"
 #   email = "chessclubhost+prod@stemgarden.org"
