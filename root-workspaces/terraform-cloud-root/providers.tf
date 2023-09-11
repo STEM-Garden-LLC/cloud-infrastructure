@@ -21,13 +21,4 @@ terraform {
 provider "tfe" {
   # token = var.token   # Set with env var TFE_TOKEN instead
   organization = "stem-garden-llc"
-
-  # default_tags {
-  #   tags = {
-  #     Owner            = "SGLLC"
-  #     Project          = "Cloud Provider Roots"
-  #     Workspace        = "Terraform Cloud Root"
-  #     Managed_via      = "Terraform Cloud"
-  #   }
-  # }
 }
