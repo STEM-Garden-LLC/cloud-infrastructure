@@ -25,8 +25,6 @@ resource "aws_organizations_account" "stem_garden_llc" {
 resource "aws_organizations_organizational_unit" "stem_garden_ou" {
   name      = "STEM Garden Homepage"
   parent_id = "r-p2mx"
-  tags      = {}
-  tags_all  = {}
 }
 
 resource "aws_organizations_account" "stem_garden_prod" {
@@ -42,14 +40,12 @@ resource "aws_organizations_account" "stem_garden_prod" {
 resource "aws_organizations_organizational_unit" "mastery_math_ou" {
   name      = "Mastery Math"
   parent_id = "r-p2mx"
-  tags      = {}
-  tags_all  = {}
 }
 
 resource "aws_organizations_account" "mastery_math_dev" {
   name                       = "Mastery Math Dev"
-  parent_id                  = "ou-p2mx-6hyxrmrf"
   email                      = "masterymath+dev@stemgarden.org"
+  parent_id                  = aws_organizations_organizational_unit.mastery_math_ou.id
   close_on_deletion          = null
   create_govcloud            = null
   iam_user_access_to_billing = null
@@ -58,8 +54,8 @@ resource "aws_organizations_account" "mastery_math_dev" {
 
 resource "aws_organizations_account" "mastery_math_prod" {
   name                       = "Mastery Math Prod"
-  parent_id                  = "ou-p2mx-6hyxrmrf"
   email                      = "masterymath@stemgarden.org"
+  parent_id                  = aws_organizations_organizational_unit.mastery_math_ou.id
   close_on_deletion          = null
   create_govcloud            = null
   iam_user_access_to_billing = null
@@ -75,36 +71,12 @@ resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
 
-# resource "aws_organizations_account" "account" {
-#   name  = "Club Host Tool Prod"
-#   email = "chessclubhost+prod@stemgarden.org"
-#   parent_id = aws_organizations_organizational_unit.chessclubhost_ou.id
-# }
-
-import {
-  to = aws_organizations_account.chessclubhost_prod
-  id = "636021045783"
-}
-
 resource "aws_organizations_account" "chessclubhost_prod" {
+  name                       = "Club Host Tool Prod"
+  email                      = "chessclubhost+prod@stemgarden.org"
+  parent_id                  = aws_organizations_organizational_unit.chessclubhost_ou.id
   close_on_deletion          = null
   create_govcloud            = null
-  email                      = "chessclubhost+prod@stemgarden.org"
   iam_user_access_to_billing = null
-  name                       = "Club Host Tool Prod"
-  parent_id                  = "r-p2mx"
   role_name                  = null
-  tags                       = {}
-  tags_all = {
-    Owner           = "SGLLC"
-    Project         = "Cloud Provider Roots"
-    Provisioned_via = "Terraform Cloud"
-    Workspace       = "AWS Root"
-  }
 }
-
-# resource "aws_organizations_account" "chessclubhost_ou" {
-#   name  = "Club Host Tool Prod"
-#   email = "chessclubhost+prod@stemgarden.org"
-#   parent_id = aws_organizations_organizational_unit.chessclubhost_ou.id
-# }
