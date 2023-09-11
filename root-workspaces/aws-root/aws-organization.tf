@@ -55,12 +55,12 @@ import {
 ##  Club Hosting Tool  ##
 #########################
 
-resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
-  name      = "Club Host Tool"
-  parent_id = aws_organizations_organization.sgllc_org.roots[0].id
-}
+# resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
+#   name      = "Club Host Tool"
+#   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
+# }
 
-resource "aws_organizations_account" "account" {
-  name  = "Club Host Tool Prod"
-  email = "chessclubhost+prod@stemgarden.org"
-}
+# resource "aws_organizations_account" "account" {
+#   name  = "Club Host Tool Prod"
+#   email = "chessclubhost+prod@stemgarden.org"
+# }
