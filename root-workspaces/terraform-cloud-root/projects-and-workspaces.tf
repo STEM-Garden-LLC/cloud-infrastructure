@@ -28,7 +28,7 @@ module "mastery_math_project_and_workspaces" {
 
   project_name   = "mastery-math"
   domain_name    = "masterymath.org"
-  workspace_list = ["dev", "stage", "prod", "shared"]
+  workspace_list = ["dev", "prod", "shared"]
 }
 
 
@@ -41,7 +41,7 @@ module "stem_garden_project_and_workspaces" {
 
   project_name   = "stem-garden"
   domain_name    = "stemgarden.org"
-  workspace_list = ["dev", "stage", "prod", "shared"]
+  workspace_list = ["dev", "prod", "shared"]
 
 
 }
@@ -55,7 +55,5 @@ module "chess_club_host_project_and_workspaces" {
 
   project_name   = "chess-club-host"
   domain_name    = "chessclubhost.com"
-  workspace_list = ["dev", "stage", "prod", "shared"]
-
-
+  workspace_list = ["dev", "prod", "shared"]
 }
