@@ -31,7 +31,6 @@ module "mastery_math_project_and_workspaces" {
   workspace_list = ["dev", "prod", "shared"]
 }
 
-
 ##########################
 ##      STEM Garden     ##
 ##########################
@@ -42,8 +41,6 @@ module "stem_garden_project_and_workspaces" {
   project_name   = "stem-garden"
   domain_name    = "stemgarden.org"
   workspace_list = ["dev", "prod", "shared"]
-
-
 }
 
 ##########################
