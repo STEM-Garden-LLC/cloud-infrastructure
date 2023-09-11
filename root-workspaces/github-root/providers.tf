@@ -21,6 +21,7 @@ terraform {
 
 variable "github_token" {
   type = string
+  default = null
 }
 
 # Default
