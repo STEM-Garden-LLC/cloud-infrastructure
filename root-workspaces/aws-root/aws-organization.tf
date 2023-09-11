@@ -9,15 +9,13 @@ resource "aws_organizations_organization" "sgllc_org" {
 }
 
 resource "aws_organizations_account" "stem_garden_llc" {
-  close_on_deletion          = null
-  create_govcloud            = null
-  email                      = "nigel@stemgarden.org"
-  iam_user_access_to_billing = null
   name                       = "STEM Garden LLC"
   parent_id                  = "r-p2mx"
+  email                      = "nigel@stemgarden.org"
+  close_on_deletion          = null
+  create_govcloud            = null
+  iam_user_access_to_billing = null
   role_name                  = null
-  tags                       = {}
-  tags_all                   = {}
 }
 
 ############################
@@ -49,27 +47,23 @@ resource "aws_organizations_organizational_unit" "mastery_math_ou" {
 }
 
 resource "aws_organizations_account" "mastery_math_dev" {
-  close_on_deletion          = null
-  create_govcloud            = null
-  email                      = "masterymath+dev@stemgarden.org"
-  iam_user_access_to_billing = null
   name                       = "Mastery Math Dev"
   parent_id                  = "ou-p2mx-6hyxrmrf"
+  email                      = "masterymath+dev@stemgarden.org"
+  close_on_deletion          = null
+  create_govcloud            = null
+  iam_user_access_to_billing = null
   role_name                  = null
-  tags                       = {}
-  tags_all                   = {}
 }
 
 resource "aws_organizations_account" "mastery_math_prod" {
-  close_on_deletion          = null
-  create_govcloud            = null
-  email                      = "masterymath@stemgarden.org"
-  iam_user_access_to_billing = null
   name                       = "Mastery Math Prod"
   parent_id                  = "ou-p2mx-6hyxrmrf"
+  email                      = "masterymath@stemgarden.org"
+  close_on_deletion          = null
+  create_govcloud            = null
+  iam_user_access_to_billing = null
   role_name                  = null
-  tags                       = {}
-  tags_all                   = {}
 }
 
 #########################
