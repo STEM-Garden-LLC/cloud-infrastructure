@@ -9,4 +9,15 @@ resource "aws_iam_user" "nigel_wilson" {
   force_destroy        = null
 }
 
-# resource "aws_iam_user" "example" {
+resource "aws_iam_user" "test" {
+  name          = "test-user"
+  force_destroy = true
+}
+
+resource "aws_iam_user_login_profile" "test" {
+  user    = aws_iam_user.test.name
+}
+
+output "password" {
+  value = aws_iam_user_login_profile.test.password
+}
