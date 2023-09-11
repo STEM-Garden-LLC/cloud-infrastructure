@@ -75,11 +75,11 @@ resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
 }
 
-resource "aws_organizations_account" "account" {
-  name  = "Club Host Tool Prod"
-  email = "chessclubhost+prod@stemgarden.org"
-  parent_id = aws_organizations_organizational_unit.chessclubhost_ou.id
-}
+# resource "aws_organizations_account" "account" {
+#   name  = "Club Host Tool Prod"
+#   email = "chessclubhost+prod@stemgarden.org"
+#   parent_id = aws_organizations_organizational_unit.chessclubhost_ou.id
+# }
 
 import {
   to = aws_organizations_account.chessclubhost_prod
