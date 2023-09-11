@@ -1,1 +1,1 @@
-users = toset([ "test-user-2" ])
+users = [ "test-user-2" ]
