@@ -1,1 +1,1 @@
-users = [ "test-user-2", "test-user-3" ]
+users = [ "nigels-test-user", "bruce-lindman" ]
