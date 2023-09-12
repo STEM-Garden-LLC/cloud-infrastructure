@@ -4,7 +4,7 @@ variable "username" {
 }
 
 resource "aws_iam_user" "user" {
-  name          = var.user
+  name          = var.username
   force_destroy = true
 }
 
