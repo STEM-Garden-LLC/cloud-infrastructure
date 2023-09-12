@@ -13,11 +13,13 @@ resource "aws_iam_user" "nigel_wilson" {
 module "users" {
   source = "../../modules/iam-user-profile"
   for_each = toset(var.users)
-  user = each.value
+  username = each.value
 }
 
-output "users" {
-  value = module.users.password
+output "user_login_profiles" {
+  value = {
+    for profile in module.users : profile.username => profile.initial_password
+  }
 }
 
 # resource "aws_iam_user" "test" {

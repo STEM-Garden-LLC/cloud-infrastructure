@@ -1,5 +1,5 @@
 
-variable "user" {
+variable "username" {
   type = string
 }
 
@@ -13,6 +13,12 @@ resource "aws_iam_user_login_profile" "login_profile" {
   password_reset_required = true
 }
 
-output "password" {
+output "username" {
+  value = aws_iam_user_login_profile.login_profile.user
+}
+
+output "initial_password" {
   value = aws_iam_user_login_profile.login_profile.password
 }
+
+
