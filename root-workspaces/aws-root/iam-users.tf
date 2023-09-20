@@ -16,11 +16,6 @@ module "users" {
   username = each.value
 }
 
-output "user_login_profiles" {
-  value = {
-    for profile in module.users : profile.username => profile.initial_password
-  }
-}
 
 # resource "aws_iam_user" "test" {
 #   name          = "test-user"
