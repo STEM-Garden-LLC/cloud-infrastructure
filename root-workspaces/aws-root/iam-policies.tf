@@ -156,6 +156,9 @@ resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
             "Sid": "DenyAllExceptListedIfNoMFA",
             "Effect": "Deny",
             "NotAction": [
+                "iam:ChangePassword",
+                "iam:GetLoginProfile",
+                "iam:UpdateLoginProfile",
                 "iam:ListUsers",
                 "iam:CreateVirtualMFADevice",
                 "iam:EnableMFADevice",
