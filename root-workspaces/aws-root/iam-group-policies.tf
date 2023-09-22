@@ -28,10 +28,6 @@ resource "aws_iam_group" "self_manage_login" {
   path = "/"
 }
 
-resource "aws_iam_group" "sgllc_root_readonly" {
-  name = "sgllc-root-readonly"
-  path = "/"
-}
 
 
 ############################
