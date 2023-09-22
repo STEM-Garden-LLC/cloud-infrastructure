@@ -17,7 +17,7 @@ resource "aws_iam_group_membership" "all_team_members" {
     # [for user in module.users.usernames_list :  ]
     # [for user_login_profile in module.users[*] : user_login_profile.user ],
     # [for user_login_profile in module.users[*] : user_login_profile.username ],
-    # [for username in module.users.usernames_list : username ]
+    [for username in module.users.usernames_list : username ]
   ]
 
 }
