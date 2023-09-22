@@ -9,7 +9,8 @@ resource "aws_iam_group" "all_team_members" {
 
 resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credentials" {
   group      = aws_iam_group.all_team_members.name
-  policy_arn = aws_iam_policy.self_manage_mfa_and_credentials.arn
+  # policy_arn = aws_iam_policy.self_manage_mfa_and_credentials.arn
+  policy_arn = aws_iam_policy.self_manage_password.arn
 }
 
 
