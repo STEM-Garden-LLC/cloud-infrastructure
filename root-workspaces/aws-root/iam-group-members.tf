@@ -10,7 +10,8 @@ resource "aws_iam_group_membership" "all_team_members" {
   group = aws_iam_group.all_team_members.name
 
   # users = toset(module.users.usernames_list)
-  users = toset([ for index, username in module.users.usernames_list : username ])
+  # users = toset([ for index, username in module.users.usernames_list : username ])
+  users = toset([ for profile in module.users : profile.username ])
   # users = [
   #   # aws_iam_user.nigel_wilson.name,
   #   # module.users.nigels-test-user.username,
