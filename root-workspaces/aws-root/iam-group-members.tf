@@ -10,8 +10,8 @@ resource "aws_iam_group_membership" "all_team_members" {
 
   users = [
     aws_iam_user.nigel_wilson.name,
-    module.users.nigels-test-user.name,
-    module.users.bruce-lindman.name,
+    module.users.nigels-test-user.username,
+    module.users.bruce-lindman.username,
   ]
 
   group = aws_iam_group.all_team_members
