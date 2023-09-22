@@ -3,7 +3,7 @@
 #########################################
 
 resource "aws_iam_policy" "self_manage_password" {
-  name = "self_manage_password_policy"
+  name = "self_manage_password_and_api_keys_policy"
   #docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage-pass-accesskeys-ssh.html
 
   policy = jsonencode({
@@ -59,7 +59,7 @@ resource "aws_iam_policy" "self_manage_password" {
 }
 
 resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
-  name = "self_manage_password_policy"
+  name = "self_manage_password_mfa_and_api_keys_policy"
   # docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html
 
   policy = jsonencode({
