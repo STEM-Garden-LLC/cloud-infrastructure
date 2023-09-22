@@ -36,7 +36,7 @@ resource "aws_iam_group" "self_manage_login" {
 
 resource "aws_iam_group" "stem_garden_admins" {
   name = "stem-garden-admins"
-  path = "/"
+  path = "/stemgarden"
 }
 
 
@@ -44,21 +44,15 @@ resource "aws_iam_group" "stem_garden_admins" {
 ##  Mastery Math  ##
 ####################
 
-resource "aws_iam_group" "mastery_math" {
-  name = "mastery-math"
-  path = "/"
-}
-
 resource "aws_iam_group" "mastery_math_admins" {
   name = "mastery-math-admins"
-  path = "/mastery-math"
+  path = "/masterymath"
 }
 
 resource "aws_iam_group" "mastery_math_devs" {
   name = "mastery-math-devs"
-  path = "/mastery-math"
+  path = "/masterymath"
 }
-
 
 #########################
 ##  Club Hosting Tool  ##
@@ -66,5 +60,5 @@ resource "aws_iam_group" "mastery_math_devs" {
 
 resource "aws_iam_group" "chessclubhost" {
   name = "chess-club-host-admins"
-  path = "/"
+  path = "/clubhost"
 }
