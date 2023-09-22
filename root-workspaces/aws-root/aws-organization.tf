@@ -28,8 +28,8 @@ resource "aws_organizations_organizational_unit" "stem_garden_ou" {
 }
 
 resource "aws_organizations_account" "stem_garden_prod" {
-  name  = "STEM Garden Prod"
-  email = "aws+sg-prod@stemgarden.org"
+  name      = "STEM Garden Prod"
+  email     = "aws+sg-prod@stemgarden.org"
   parent_id = aws_organizations_organizational_unit.stem_garden_ou.id
 }
 

@@ -11,7 +11,7 @@ resource "aws_iam_user" "nigel_wilson" {
 }
 
 module "users" {
-  source = "../../modules/iam-user-profile"
+  source   = "../../modules/iam-user-profile"
   for_each = toset(var.users)
   username = each.value
 }
