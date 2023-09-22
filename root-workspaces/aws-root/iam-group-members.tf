@@ -9,17 +9,18 @@ resource "aws_iam_group_membership" "all_team_members" {
   name = "users-who-can-self-manage-login"  # This will be ALL users so perhaps it makes more sense to create a group that is ALL users and attatch multiple policies including the self manage policy.  
   group = aws_iam_group.all_team_members.name
 
-  users = [
-    # aws_iam_user.nigel_wilson.name,
-    # module.users.nigels-test-user.username,
-    # module.users.bruce-lindman.username,
-    # module.users[*]
-    # [for user in module.users.usernames_list :  ]
-    # [for user_login_profile in module.users[*] : user_login_profile.user ],
-    # [for user_login_profile in module.users[*] : user_login_profile.username ],
-    # [for username in module.users.usernames_list : username ],
-    [ for key, user_profile in module.users : user_profile.username ]
-  ]
+  users = module.users.usernames_list
+  # users = [
+  #   # aws_iam_user.nigel_wilson.name,
+  #   # module.users.nigels-test-user.username,
+  #   # module.users.bruce-lindman.username,
+  #   # module.users[*]
+  #   # [for user in module.users.usernames_list :  ]
+  #   # [for user_login_profile in module.users[*] : user_login_profile.user ],
+  #   # [for user_login_profile in module.users[*] : user_login_profile.username ],
+  #   # [for username in module.users.usernames_list : username ],
+  #   # [ for key, user_profile in module.users : user_profile.username ]
+  # ]
 
 }
 
