@@ -2,9 +2,11 @@
 ##  Organization & Management Account  ##
 #########################################
 
+# policy docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html
+# Using wildcards (*) in IAM policies: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
+# IAM Policy Actions: https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.html
 resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
   name = "self_manage_password_mfa_and_api_keys_policy"
-  # docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html
 
   policy = jsonencode({
     "Version": "2012-10-17",
