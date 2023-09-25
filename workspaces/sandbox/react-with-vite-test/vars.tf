@@ -2,10 +2,10 @@ variable "bucket_to_push_to" {
   type = string
 }
 
-# variable "aws_access_key_id" {
-#   type = string
-# }
+variable "AWS_ACCESS_KEY_ID" {
+  type = string
+}
 
-# variable "aws_secret_access_key" {
-#   type = string
-# }
+variable "AWS_SECRET_ACCESS_KEY" {
+  type = string
+}
