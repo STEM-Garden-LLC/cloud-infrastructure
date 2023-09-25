@@ -6,8 +6,7 @@
 # Using wildcards (*) in IAM policies: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
 # IAM Policy Actions: https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.html
 resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
-  name = "self_manage_password_mfa_and_api_keys_policy"
-
+  name = "self_manage_mfa_password_and_api_keys_policy"
   policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [
@@ -15,9 +14,9 @@ resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
             "Sid": "AllowViewAccountInfo",
             "Effect": "Allow",
             "Action": [
+                "iam:ListUsers",
                 "iam:GetAccountPasswordPolicy",
                 "iam:ListVirtualMFADevices",
-                "iam:ListUsers"
             ],
             "Resource": "*"
         },
@@ -25,8 +24,8 @@ resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
             "Sid": "AllowManageOwnPasswords",
             "Effect": "Allow",
             "Action": [
-                "iam:ChangePassword",
                 "iam:GetUser",
+                "iam:ChangePassword",
                 "iam:GetLoginProfile",
                 "iam:UpdateLoginProfile"
             ],
@@ -35,66 +34,35 @@ resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
         {
             "Sid": "AllowManageOwnAccessKeys",
             "Effect": "Allow",
-            "Action": [
-                "iam:CreateAccessKey",
-                "iam:DeleteAccessKey",
-                "iam:ListAccessKeys",
-                "iam:UpdateAccessKey",
-                "iam:GetAccessKeyLastUsed"
-            ],
+            "Action": [ "iam:*AccessKey*" ],
             "Resource": "arn:aws:iam::*:user/$${aws:username}"
         },
         {
             "Sid": "AllowManageOwnSigningCertificates",
             "Effect": "Allow",
-            "Action": [
-                "iam:DeleteSigningCertificate",
-                "iam:ListSigningCertificates",
-                "iam:UpdateSigningCertificate",
-                "iam:UploadSigningCertificate"
-            ],
+            "Action": [ "iam:*SigningCertificate" ],
             "Resource": "arn:aws:iam::*:user/$${aws:username}"
         },
         {
             "Sid": "AllowManageOwnSSHPublicKeys",
             "Effect": "Allow",
-            "Action": [
-                "iam:DeleteSSHPublicKey",
-                "iam:GetSSHPublicKey",
-                "iam:ListSSHPublicKeys",
-                "iam:UpdateSSHPublicKey",
-                "iam:UploadSSHPublicKey"
-            ],
-            "Resource": "arn:aws:iam::*:user/$${aws:username}"
-        },
-        {
-            "Sid": "AllowManageOwnGitCredentials",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateServiceSpecificCredential",
-                "iam:DeleteServiceSpecificCredential",
-                "iam:ListServiceSpecificCredentials",
-                "iam:ResetServiceSpecificCredential",
-                "iam:UpdateServiceSpecificCredential"
-            ],
+            "Action": [ "iam:*SSHPublicKey" ],
             "Resource": "arn:aws:iam::*:user/$${aws:username}"
         },
         {
             "Sid": "AllowManageOwnVirtualMFADevice",
             "Effect": "Allow",
-            "Action": [
-                "iam:CreateVirtualMFADevice"
-            ],
+            "Action": [ "iam:CreateVirtualMFADevice" ],
             "Resource": "arn:aws:iam::*:mfa/*"
         },
         {
             "Sid": "AllowManageOwnUserMFA",
             "Effect": "Allow",
             "Action": [
-                "iam:DeactivateMFADevice",
-                "iam:EnableMFADevice",
                 "iam:ListMFADevices",
                 "iam:GetMFADevice",
+                "iam:EnableMFADevice",
+                "iam:DeactivateMFADevice",
                 "iam:ResyncMFADevice"
             ],
             "Resource": "arn:aws:iam::*:user/$${aws:username}"
