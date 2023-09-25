@@ -94,6 +94,7 @@ resource "aws_iam_policy" "self_manage_mfa_and_credentials" {
                 "iam:DeactivateMFADevice",
                 "iam:EnableMFADevice",
                 "iam:ListMFADevices",
+                "iam:GetMFADevice",
                 "iam:ResyncMFADevice"
             ],
             "Resource": "arn:aws:iam::*:user/$${aws:username}"
