@@ -28,12 +28,6 @@ provider "aws" {
   region                   = "us-east-1"
   shared_config_files      = ["/Users/nigelwilson/.aws/config"]
   shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
-}
-
-# Default GitHub Provider
-# Configure the GitHub Provider to provision resources in stem-garden-llc account
-provider "github" {
-  owner = "stem-garden-llc"
 
   default_tags {
     tags = {
@@ -42,4 +36,10 @@ provider "github" {
       workspace      = "react-with-vite-test"
     }
   }
+}
+
+# Default GitHub Provider
+# Configure the GitHub Provider to provision resources in stem-garden-llc account
+provider "github" {
+  owner = "stem-garden-llc"  
 }
