@@ -35,31 +35,59 @@ resource "aws_iam_group" "self_manage_login" {
 ##  STEM Garden Homepage  ##
 ############################
 
-resource "aws_iam_group" "stem_garden_admins" {
-  name = "stem-garden-admins"
-  path = "/stemgarden/"
-}
+# resource "aws_iam_group" "stem_garden_admins" {
+#   name = "stem-garden-admins"
+#   path = "/stemgarden/"
+# }
 
 
 ####################
 ##  Mastery Math  ##
 ####################
 
-resource "aws_iam_group" "mastery_math_admins" {
-  name = "mastery-math-admins"
-  path = "/masterymath/"
-}
+# resource "aws_iam_group" "mastery_math_admins" {
+#   name = "mastery-math-admins"
+#   path = "/masterymath/"
+# }
 
-resource "aws_iam_group" "mastery_math_devs" {
-  name = "mastery-math-devs"
-  path = "/masterymath/"
-}
+# resource "aws_iam_group" "mastery_math_devs" {
+#   name = "mastery-math-devs"
+#   path = "/masterymath/"
+# }
 
 #########################
 ##  Club Hosting Tool  ##
 #########################
 
-resource "aws_iam_group" "chessclubhost" {
-  name = "chess-club-host-admins"
-  path = "/clubhost/"
-}
+# resource "aws_iam_group" "club_host_admins" {
+#   name = "chess-club-host-admins"
+#   path = "/clubhost/"
+# }
+
+# resource "aws_iam_group_policy" "club_host_admin" {
+#   name = "chess-club-host-admins"
+#   group      = aws_iam_group.club_host_admins.name
+#   policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       { 
+#         Sid = "AssumeAdminRoleInMemberAccount"
+#         Effect   = "Allow"
+#         Action = "sts:AssumeRole"
+#         Resource = "arn:aws:iam::${aws_organizations_account.chessclubhost_prod.id}"
+#       },
+#     ]
+#   })
+# }
+
+# resource "aws_iam_group" "club_host_dbas" {
+#   name = "chess-club-host-database-admins"
+#   path = "/clubhost/"
+# }
+
+# resource "aws_iam_group" "club_host_readonly" {
+#   name = "chess-club-host-readonly"
+#   path = "/clubhost/"
+# }
+
+# arn:aws:iam::aws:policy/job-function/DatabaseAdministrator
