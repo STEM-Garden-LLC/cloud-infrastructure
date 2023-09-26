@@ -81,26 +81,26 @@ resource "aws_organizations_account" "mastery_math_prod" {
 #   role_name                  = null
 # }
 
-module "club_host_project_accounts" {
-  source = "../../modules/aws-org-project-accounts"
+# module "club_host_project_accounts" {
+#   source = "../../modules/aws-org-project-accounts"
 
-  project_name = "chess_club_host"
-  account_name_suffix_list = [
-    "dev", 
-    "prod", 
-    "shared"
-  ]
-}
+#   project_name = "chess_club_host"
+#   account_name_suffix_list = [
+#     "dev", 
+#     "prod", 
+#     "shared"
+#   ]
+# }
 
 #########################
 ##   Sandbox Account   ##
 #########################
 
-module "club_host_project_accounts" {
+module "sandbox_project_accounts" {
   source = "../../modules/aws-org-project-accounts"
 
   project_name = "sandbox"
   account_name_suffix_list = [
-    "sandbox"
+    "main"
   ]
 }
