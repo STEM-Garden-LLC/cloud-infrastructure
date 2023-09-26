@@ -25,10 +25,10 @@ resource "tfe_variable" "gh_personal_access_token" {
 
 resource "tfe_variable" "gh_personal_access_token_tf_var" {
   description     = "nigel-f-wilson's personal access token"
-  key             = "github_token"
+  key             = "TF_VAR_github_token"
   value           = var.github_token
   sensitive       = true
-  category        = "terraform"
+  category        = "env"
   variable_set_id = tfe_variable_set.gh_credentials.id
 }
 
