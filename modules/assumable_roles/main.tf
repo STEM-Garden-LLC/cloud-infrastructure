@@ -2,8 +2,12 @@
 ##    Admin Access Role   ##
 ############################
 
+
+
 resource "aws_iam_role" "club_host_admin" {
-  name = "club_host_admin_role"
+  for_each = toset(var.managed_access_policy_names)
+
+  name = "${each.value}"
   description = "Role that Users in the Org's management account can assume to manage resources in the Club Host member account."
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -17,7 +21,7 @@ resource "aws_iam_role" "club_host_admin" {
     ]
   })
   inline_policy {}
-  managed_policy_arns = "arn:aws:iam::aws:policy/AdministratorAccess"
+  managed_policy_arns = "arn:aws:iam::aws:policy/${each.value}"
 }
 
 ##########################
