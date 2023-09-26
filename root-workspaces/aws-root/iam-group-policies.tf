@@ -14,20 +14,12 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
 }
 
 
+# resource "aws_iam_group" "sgllc_root_readonly" {
+#   name = "sgllc-root-readonly"
+#   path = "/"
+# }
 
 
-resource "aws_iam_group" "sgllc_root_readonly" {
-  name = "sgllc-root-readonly"
-  path = "/"
-}
-
-
-
-
-resource "aws_iam_group" "self_manage_login" {
-  name = "self-manage-login"
-  path = "/"
-}
 
 
 
