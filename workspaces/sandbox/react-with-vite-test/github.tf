@@ -19,11 +19,11 @@ resource "github_actions_secret" "aws_s3_bucket" {
 resource "github_actions_secret" "aws_access_key_id" {
   repository      = github_repository.react_with_vite_test.name
   secret_name     = "AWS_ACCESS_KEY_ID"
-  plaintext_value = var.AWS_ACCESS_KEY_ID
+  plaintext_value = var.aws_access_key_id
 }
 
 resource "github_actions_secret" "aws_secret_access_key" {
   repository      = github_repository.react_with_vite_test.name
   secret_name     = "AWS_SECRET_ACCESS_KEY"
-  plaintext_value = var.AWS_SECRET_ACCESS_KEY
+  plaintext_value = var.aws_secret_access_key
 }
