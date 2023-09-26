@@ -8,7 +8,8 @@ variable "group_members" {
   description = "The names of the IAM Users to add to the Group."
 }
 
-variable "assumeable_role_arns" {
-  
+variable "assumable_role_arns" {
+  type = list(string)
+  description = "Used to attach one or more Project Account Role to a single Group in the Management Account."
 }
 
