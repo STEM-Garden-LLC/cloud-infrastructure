@@ -91,3 +91,16 @@ module "club_host_project_accounts" {
     "shared"
   ]
 }
+
+#########################
+##   Sandbox Account   ##
+#########################
+
+module "club_host_project_accounts" {
+  source = "../../modules/aws-org-project-accounts"
+
+  project_name = "sandbox"
+  account_name_suffix_list = [
+    "sandbox"
+  ]
+}
