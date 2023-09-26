@@ -67,7 +67,7 @@ resource "tfe_variable" "aws_access_key_id" {
 
 resource "tfe_variable" "tf_var_aws_access_key_id" {
   description     = "nigel-f-wilson's AWS Access Key ID ending with \"HAYGS\""
-  key             = "TF_VAR_access_key_id"
+  key             = "TF_VAR_aws_access_key_id"
   value           = var.aws_access_key_id
   sensitive       = true
   category        = "env"
