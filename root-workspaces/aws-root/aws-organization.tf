@@ -66,17 +66,28 @@ resource "aws_organizations_account" "mastery_math_prod" {
 ##  Club Hosting Tool  ##
 #########################
 
-resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
-  name      = "Club Host Tool"
-  parent_id = aws_organizations_organization.sgllc_org.roots[0].id
-}
+# resource "aws_organizations_organizational_unit" "chessclubhost_ou" {
+#   name      = "Club Host Tool"
+#   parent_id = aws_organizations_organization.sgllc_org.roots[0].id
+# }
 
-resource "aws_organizations_account" "chessclubhost_prod" {
-  name                       = "Club Host Tool Prod"
-  email                      = "chessclubhost+prod@stemgarden.org"
-  parent_id                  = aws_organizations_organizational_unit.chessclubhost_ou.id
-  close_on_deletion          = null
-  create_govcloud            = null
-  iam_user_access_to_billing = null
-  role_name                  = null
+# resource "aws_organizations_account" "chessclubhost_prod" {
+#   name                       = "Club Host Tool Prod"
+#   email                      = "chessclubhost+prod@stemgarden.org"
+#   parent_id                  = aws_organizations_organizational_unit.chessclubhost_ou.id
+#   close_on_deletion          = null
+#   create_govcloud            = null
+#   iam_user_access_to_billing = null
+#   role_name                  = null
+# }
+
+module "club_host_project_accounts" {
+  source = "../../modules/aws-org-project-accounts"
+
+  project_name = "chess_club_host"
+  account_name_suffix_list = [
+    "dev", 
+    "prod", 
+    "shared"
+  ]
 }
