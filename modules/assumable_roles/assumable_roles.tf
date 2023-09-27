@@ -8,14 +8,26 @@ variable "trusted_account_id" {
   default = "889823018333"
 }
 
-variable "managed_access_policies" {
-  type = list(string)
+variable "managed_access_roles" {
+  type = list(object)
   description = "Path and Role names used to generate IAM managed policy assumable roles."
   default = [ 
-    "AdministratorAccess",
-    "ReadOnlyAccess",
-    "job-function/Billing",
-    "job-function/DatabaseAdministrator",
+    {
+      role_name = "Admin",
+      policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess",
+    },
+    {
+      role_name = "ReadOnly",
+      policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
+    },
+    {
+      role_name = "Billing",
+      policy_arn = "arn:aws:iam::aws:policy/job-function/Billing",
+    },
+    {
+      role_name = "DBA",
+      policy_arn = "arn:aws:iam::aws:policy/job-function/DatabaseAdministrator",
+    }
   ]
 }
 
@@ -24,9 +36,9 @@ variable "managed_access_policies" {
 ##########################
 
 resource "aws_iam_role" "assumable_roles" {
-  for_each = toset(var.managed_access_policies)
+  for_each = toset(var.managed_access_roles)
 
-  name = "${each.value}"
+  name = "${each.value.role_name}"
   description = "Role that Users in the Org's management account can assume to manage resources in member account."
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -40,6 +52,6 @@ resource "aws_iam_role" "assumable_roles" {
     ]
   })
   inline_policy {}
-  managed_policy_arns = [ "arn:aws:iam::aws:policy/${each.value}" ]
+  managed_policy_arns = [ "arn:aws:iam::aws:policy/${each.value.policy_arn}" ]
 }
 
