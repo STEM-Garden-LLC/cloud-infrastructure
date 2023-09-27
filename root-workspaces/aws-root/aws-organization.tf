@@ -12,9 +12,7 @@ resource "aws_organizations_account" "stem_garden_llc" {
   name                       = "STEM Garden LLC"
   parent_id                  = "r-p2mx"
   email                      = "nigel@stemgarden.org"
-  close_on_deletion          = null
-  create_govcloud            = null
-  iam_user_access_to_billing = null
+  close_on_deletion          = false
   role_name                  = null
 }
 
@@ -22,46 +20,20 @@ resource "aws_organizations_account" "stem_garden_llc" {
 ##  STEM Garden Homepage  ##
 ############################
 
-resource "aws_organizations_organizational_unit" "stem_garden_ou" {
-  name      = "STEM Garden Homepage"
-  parent_id = "r-p2mx"
-}
+# resource "aws_organizations_organizational_unit" "stem_garden_ou" {
+#   name      = "STEM Garden Homepage"
+#   parent_id = "r-p2mx"
+# }
 
-resource "aws_organizations_account" "stem_garden_prod" {
-  name      = "STEM Garden Prod"
-  email     = "aws+sg-prod@stemgarden.org"
-  parent_id = aws_organizations_organizational_unit.stem_garden_ou.id
-}
+# resource "aws_organizations_account" "stem_garden_prod" {
+#   name      = "STEM Garden Prod"
+#   email     = "aws+sg-prod@stemgarden.org"
+#   parent_id = aws_organizations_organizational_unit.stem_garden_ou.id
+# }
 
 ####################
 ##  Mastery Math  ##
 ####################
-
-# resource "aws_organizations_organizational_unit" "mastery_math_ou" {
-#   name      = "Mastery Math"
-#   parent_id = "r-p2mx"
-# }
-
-# resource "aws_organizations_account" "mastery_math_dev" {
-#   name                       = "Mastery Math Dev"
-#   email                      = "masterymath+dev@stemgarden.org"
-#   # parent_id                  = aws_organizations_organizational_unit.mastery_math_ou.id
-#   parent_id = "r-p2mx"
-#   close_on_deletion          = false
-#   create_govcloud            = null
-#   iam_user_access_to_billing = null
-#   role_name                  = null
-# }
-
-# resource "aws_organizations_account" "mastery_math_prod" {
-#   name                       = "Mastery Math Prod"
-#   email                      = "masterymath@stemgarden.org"
-#   parent_id                  = aws_organizations_organizational_unit.mastery_math_ou.id
-#   close_on_deletion          = null
-#   create_govcloud            = null
-#   iam_user_access_to_billing = null
-#   role_name                  = null
-# }
 
 module "mastery_math_project_accounts" {
   source = "../../modules/aws-org-project-accounts"
@@ -72,11 +44,6 @@ module "mastery_math_project_accounts" {
     "prod", 
     "shared"
   ]
-}
-
-import {
-  to = module.mastery_math_project_accounts.aws_organizations_account.accounts["dev"]
-  id = "496750456511"
 }
 
 #########################
@@ -91,10 +58,9 @@ module "club_host_project_accounts" {
     "dev", 
     "prod", 
     "shared",
-    "production"
+    # "production"
   ]
 }
-
 
 #########################
 ##   Sandbox Account   ##
