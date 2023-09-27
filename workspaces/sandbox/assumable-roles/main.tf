@@ -5,3 +5,6 @@ module "sandbox_assumable_roles" {
 
 }
 
+output "role_arns" {
+  value = module.sandbox_assumable_roles.role_arns
+}
