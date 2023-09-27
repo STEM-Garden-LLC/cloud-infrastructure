@@ -92,6 +92,11 @@ module "club_host_project_accounts" {
   ]
 }
 
+import {
+  to = module.club_host_project_accounts.prod
+  id = "636021045783"
+}
+
 #########################
 ##   Sandbox Account   ##
 #########################
