@@ -40,7 +40,7 @@ variable "managed_access_roles" {
 
 resource "aws_iam_role" "assumable_roles" {
   # for_each = toset(var.managed_access_roles)
-  for_each = { for index, role in var.managed_access_roles : role.role_name => role.policy_arn}
+  for_each = { for index, role in var.managed_access_roles : role.role_name => role}
 
   name = "${each.value.role_name}"
   description = "Role that Users in the Org's management account can assume to manage resources in member account."
