@@ -101,12 +101,13 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
 
 module "sandbox_admins" {
   source = "../../modules/assume_role_group"
-  group_name = "stem_garden_admins"
+  project_name = "stem_garden"
+  access_type = "admins"
   group_members = [
     "nigel-f-wilson",
     "nigels-test-user"
   ]
-  assumeable_role_arns = [
+  assumable_role_arns = [
     module.sandbox_assumable_roles.role_arns["Admin"]
   ]
 }
