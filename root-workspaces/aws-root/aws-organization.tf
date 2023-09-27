@@ -45,7 +45,8 @@ resource "aws_organizations_account" "stem_garden_prod" {
 resource "aws_organizations_account" "mastery_math_dev" {
   name                       = "Mastery Math Dev"
   email                      = "masterymath+dev@stemgarden.org"
-  parent_id                  = aws_organizations_organizational_unit.mastery_math_ou.id
+  # parent_id                  = aws_organizations_organizational_unit.mastery_math_ou.id
+  parent_id = "r-p2mx"
   close_on_deletion          = false
   create_govcloud            = null
   iam_user_access_to_billing = null
