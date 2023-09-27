@@ -87,9 +87,8 @@ module "club_host_project_accounts" {
   project_name = "chess_club_host"
   account_name_suffix_list = [
     "dev", 
-    "production", 
+    "prod", 
     "shared",
-    "prod"
   ]
 }
 
