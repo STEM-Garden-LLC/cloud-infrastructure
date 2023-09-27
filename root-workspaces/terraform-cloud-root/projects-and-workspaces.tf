@@ -15,7 +15,8 @@ module "sandbox_project_and_workspaces" {
     "react-with-vite-test",
     "create-github-secrets",
     "amazon-certificate-manager-test",
-    "rds-test"
+    "rds-test",
+    "assumable-roles",
   ]
 }
 
