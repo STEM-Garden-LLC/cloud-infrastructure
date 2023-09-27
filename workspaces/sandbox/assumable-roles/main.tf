@@ -1,3 +1,8 @@
+variable "management_account_id" {
+  type = string
+  default = "889823018333"
+}
+
 module "sandbox_assumable_roles" {
   source = "../../../modules/assumable_roles"
 
