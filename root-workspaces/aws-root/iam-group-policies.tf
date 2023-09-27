@@ -106,7 +106,7 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
 
 module "sandbox_admins" {
   source = "../../modules/assume_role_group"
-  project_name = "stem_garden"
+  project_name = "sandbox"
   access_type = "admins"
   group_members = [
     "nigel-f-wilson",
@@ -118,7 +118,7 @@ module "sandbox_admins" {
 
 module "sandbox_readers" {
   source = "../../modules/assume_role_group"
-  project_name = "stem_garden"
+  project_name = "sandbox"
   access_type = "read_only"
   group_members = [
     "nigels-test-user",
