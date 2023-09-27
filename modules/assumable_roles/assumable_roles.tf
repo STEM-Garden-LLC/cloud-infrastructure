@@ -8,14 +8,14 @@ variable "trusted_account_id" {
   default = "889823018333"
 }
 
-variable "managed_access_policies" {
+variable "managed_access_policy_arns" {
   type = list(string)
   description = "Path and Role names used to generate IAM managed policy assumable roles."
   default = [ 
-    "AdministratorAccess",
-    "ReadOnlyAccess",
-    "job-function/Billing",
-    "job-function/DatabaseAdministrator",
+    "arn:aws:iam::aws:policy/AdministratorAccess",
+    "arn:aws:iam::aws:policy/ReadOnlyAccess",
+    "arn:aws:iam::aws:policy/job-function/Billing",
+    "arn:aws:iam::aws:policy/job-function/DatabaseAdministrator",
   ]
 }
 
@@ -23,7 +23,7 @@ variable "managed_access_policies" {
 ##    Assumable Roles   ##
 ##########################
 
-resource "aws_iam_role" "club_host_admin" {
+resource "aws_iam_role" "assumable_roles" {
   for_each = toset(var.managed_access_policies)
 
   name = "${each.value}"
@@ -40,6 +40,6 @@ resource "aws_iam_role" "club_host_admin" {
     ]
   })
   inline_policy {}
-  managed_policy_arns = "arn:aws:iam::aws:policy/${each.value}"
+  managed_policy_arns = var.managed_access_policy_arns
 }
 
