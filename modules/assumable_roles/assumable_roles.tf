@@ -59,15 +59,6 @@ resource "aws_iam_role" "assumable_roles" {
   managed_policy_arns = [ "${each.value.policy_arn}" ]
 }
 
-# resource "aws_iam_role_policy_attachment" "test-attach" {
-#   role       = aws_iam_role.role.name
-#   policy_arn = aws_iam_policy.policy.arn
-# }
-
-output "managed_access_roles" {
-  value = var.managed_access_roles
-}
-
 output "role_arns" {
   value = {
     for key, role in aws_iam_role.assumable_roles : key => role.arn
