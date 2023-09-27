@@ -122,7 +122,7 @@ module "sandbox_readers" {
   access_type = "read_only"
   group_members = [
     "nigels-test-user",
-    "bruce_lindman"
+    "bruce-lindman"
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.sandbox_project_accounts.account_ids.main}:role/ReadOnly"
