@@ -45,3 +45,12 @@ resource "aws_organizations_account" "accounts" {
   role_name                  = null
 }
 
+output "organizational_unit_id" {
+  value = aws_organizations_organizational_unit.ou.id
+}
+
+output "account_ids" {
+  value = {
+    for key, account in aws_organizations_account.accounts : key => account.id
+  }
+}
