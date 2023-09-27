@@ -93,7 +93,7 @@ module "club_host_project_accounts" {
 }
 
 import {
-  to = module.club_host_project_accounts.prod
+  to = module.club_host_project_accounts.aws_organizations_account.prod
   id = "636021045783"
 }
 
