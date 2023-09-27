@@ -43,6 +43,12 @@ resource "aws_organizations_account" "accounts" {
   create_govcloud            = null
   iam_user_access_to_billing = null
   role_name                  = null
+
+  # The following ignore_changes block allows an Account to be imported without requiring a destroy & 
+  # recreate process, even if its Name or Email do not align with the templates in this module.
+  lifecycle {
+    ignore_changes = [name, email]
+  }
 }
 
 output "organizational_unit_id" {
