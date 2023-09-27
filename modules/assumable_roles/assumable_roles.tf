@@ -9,7 +9,10 @@ variable "trusted_account_id" {
 }
 
 variable "managed_access_roles" {
-  type = list(object)
+  type = list(object({ 
+    role_name = string,
+    policy_arn = string
+  }))
   description = "Path and Role names used to generate IAM managed policy assumable roles."
   default = [ 
     {
