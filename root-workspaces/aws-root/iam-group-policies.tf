@@ -32,6 +32,17 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
 #   path = "/stemgarden/"
 # }
 
+# module "stem_garden_admins" {
+#   source = "../../modules/assume_role_group"
+#   group_name = "stem_garden_admins"
+#   group_members = [
+#     "nigel-f-wilson",
+#     "nigels-test-user"
+#   ]
+#   assumeable_role_arns = [
+
+#   ]
+# }
 
 ####################
 ##  Mastery Math  ##
@@ -83,3 +94,19 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
 # }
 
 # arn:aws:iam::aws:policy/job-function/DatabaseAdministrator
+
+#####################
+##     Sandbox     ##
+#####################
+
+module "sandbox_admins" {
+  source = "../../modules/assume_role_group"
+  group_name = "stem_garden_admins"
+  group_members = [
+    "nigel-f-wilson",
+    "nigels-test-user"
+  ]
+  assumeable_role_arns = [
+    module.sandbox_assumable_roles.role_arns["Admin"]
+  ]
+}
