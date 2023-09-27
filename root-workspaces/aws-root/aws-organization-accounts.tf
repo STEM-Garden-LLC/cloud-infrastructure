@@ -30,19 +30,6 @@ module "stem_garden_project_accounts" {
   ]
 }
 
-# resource "aws_organizations_organizational_unit" "stem_garden_ou" {
-#   name      = "STEM Garden Homepage"
-#   parent_id = "r-p2mx"
-# }
-
-# resource "aws_organizations_account" "stem_garden_prod" {
-#   name      = "STEM Garden Prod"
-#   email     = "aws+sg-prod@stemgarden.org"
-#   parent_id = aws_organizations_organizational_unit.stem_garden_ou.id
-# }
-
-
-
 ####################
 ##  Mastery Math  ##
 ####################
