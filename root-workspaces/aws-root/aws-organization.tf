@@ -92,12 +92,6 @@ module "club_host_project_accounts" {
   ]
 }
 
-# The following import block should work once teh existing account is reactivated. Pending AWS Support case 13929714271.
-import {
-  to = module.club_host_project_accounts.aws_organizations_account.accounts["prod"]
-  id = "636021045783"
-}
-
 #########################
 ##   Sandbox Account   ##
 #########################
