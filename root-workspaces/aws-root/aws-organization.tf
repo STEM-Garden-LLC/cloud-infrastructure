@@ -31,6 +31,8 @@ resource "aws_organizations_account" "stem_garden_llc" {
 #   parent_id = aws_organizations_organizational_unit.stem_garden_ou.id
 # }
 
+
+
 ####################
 ##  Mastery Math  ##
 ####################
@@ -58,7 +60,7 @@ module "club_host_project_accounts" {
     "dev", 
     "prod", 
     "shared",
-    # "production"
+    "production"
   ]
 }
 
