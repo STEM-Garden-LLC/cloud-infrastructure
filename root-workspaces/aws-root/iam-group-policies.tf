@@ -110,9 +110,23 @@ module "sandbox_admins" {
   access_type = "admins"
   group_members = [
     "nigel-f-wilson",
-    "nigels-test-user"
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.sandbox_project_accounts.account_ids.main}:role/Admin"
   ]
 }
+
+module "sandbox_readers" {
+  source = "../../modules/assume_role_group"
+  project_name = "stem_garden"
+  access_type = "read_only"
+  group_members = [
+    "nigels-test-user",
+    "bruce_lindman"
+  ]
+  assumable_role_arns = [
+    "arn:aws:iam::${module.sandbox_project_accounts.account_ids.main}:role/ReadOnly"
+  ]
+}
+
+
