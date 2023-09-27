@@ -63,3 +63,7 @@ resource "aws_iam_role" "assumable_roles" {
 #   role       = aws_iam_role.role.name
 #   policy_arn = aws_iam_policy.policy.arn
 # }
+
+output "managed_access_roles" {
+  value = var.managed_access_roles
+}
