@@ -20,6 +20,16 @@ resource "aws_organizations_account" "stem_garden_llc" {
 ##  STEM Garden Homepage  ##
 ############################
 
+module "stem_garden_project_accounts" {
+  source = "../../modules/aws-org-project-accounts"
+  project_name = "stem_garden"
+  account_name_suffix_list = [
+    "dev", 
+    "prod", 
+    "shared"
+  ]
+}
+
 # resource "aws_organizations_organizational_unit" "stem_garden_ou" {
 #   name      = "STEM Garden Homepage"
 #   parent_id = "r-p2mx"
@@ -39,7 +49,6 @@ resource "aws_organizations_account" "stem_garden_llc" {
 
 module "mastery_math_project_accounts" {
   source = "../../modules/aws-org-project-accounts"
-
   project_name = "mastery_math"
   account_name_suffix_list = [
     "dev", 
@@ -54,7 +63,6 @@ module "mastery_math_project_accounts" {
 
 module "club_host_project_accounts" {
   source = "../../modules/aws-org-project-accounts"
-
   project_name = "chess_club_host"
   account_name_suffix_list = [
     "dev", 
@@ -70,7 +78,6 @@ module "club_host_project_accounts" {
 
 module "sandbox_project_accounts" {
   source = "../../modules/aws-org-project-accounts"
-
   project_name = "sandbox"
   account_name_suffix_list = [
     "main"
