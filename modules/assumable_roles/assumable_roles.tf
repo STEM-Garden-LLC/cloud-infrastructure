@@ -67,3 +67,9 @@ resource "aws_iam_role" "assumable_roles" {
 output "managed_access_roles" {
   value = var.managed_access_roles
 }
+
+output "role_arns" {
+  value = {
+    for key, role in aws_iam_role.aws_iam_role.assumable_roles : key => role.arn
+  }
+}
