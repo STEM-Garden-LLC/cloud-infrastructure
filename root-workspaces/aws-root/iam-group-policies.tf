@@ -13,6 +13,11 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
   # policy_arn = aws_iam_policy.self_manage_password.arn
 }
 
+# locals {
+#   sandbox_main_account_id = module.sandbox_project_accounts
+#   # "060852368196"
+# }
+
 
 # resource "aws_iam_group" "sgllc_root_readonly" {
 #   name = "sgllc-root-readonly"
@@ -108,6 +113,6 @@ module "sandbox_admins" {
     "nigels-test-user"
   ]
   assumable_role_arns = [
-    module.sandbox_assumable_roles.role_arns["Admin"]
+    "arn:aws:iam::${module.sandbox_project_accounts.account_ids.main}:role/Admin"
   ]
 }
