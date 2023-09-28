@@ -12,6 +12,11 @@ resource "aws_iam_group_policy_attachment" "all_team_self_manage_mfa_and_credent
   policy_arn = aws_iam_policy.self_manage_mfa_and_credentials.arn
 }
 
+resource "aws_iam_group_policy_attachment" "management_account_read_only" {
+  group      = aws_iam_group.all_team_members.name
+  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
 # WARNING:
 # Multiple aws_iam_group_membership resources with the same group name will produce inconsistent behavior!
 resource "aws_iam_group_membership" "all_team_members" {
@@ -24,19 +29,7 @@ resource "aws_iam_group_membership" "all_team_members" {
   )
 }
 
-resource "aws_iam_group_policy_attachment" "management_account_read_only" {
-  group      = aws_iam_group.all_team_members.name
-  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
-}
 
-resource "aws_iam_group_membership" "management_account_readers" {
-  name = "management-account-read-only-members"  
-  group = aws_iam_group.management_account_readers.name
-  users = setunion(
-    # [ aws_iam_user.nigel_wilson.name ],
-    toset([ for profile in module.users : profile.username ])
-  )
-}
 
 
 ############################
