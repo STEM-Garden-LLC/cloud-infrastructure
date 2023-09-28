@@ -30,7 +30,7 @@ resource "aws_iam_group" "management_account_readers" {
 }
 
 resource "aws_iam_group_policy_attachment" "management_account_read_only" {
-  group      = aws_iam_group.all_team_members.name
+  group      = aws_iam_group.management_account_readers.name
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
 
