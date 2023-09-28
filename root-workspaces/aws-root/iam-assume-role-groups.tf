@@ -37,7 +37,7 @@ resource "aws_iam_group_membership" "all_team_members" {
 ############################
 
 module "stem_garden_all_account_admins" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "stem_garden"
   access_type = "all_account_admins"
   group_members = [
@@ -57,7 +57,7 @@ module "stem_garden_all_account_admins" {
 ####################
 
 module "mastery_math_all_account_admins" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "mastery_math"
   access_type = "all_account_admins"
   group_members = [
@@ -77,7 +77,7 @@ module "mastery_math_all_account_admins" {
 #########################
 
 module "club_host_all_account_admins" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "chess_club_host"
   access_type = "all_account_admins"
   group_members = [
@@ -91,7 +91,7 @@ module "club_host_all_account_admins" {
 }
 
 module "club_host_database_administrators" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "chess_club_host"
   access_type = "database_administrator"
   group_members = [
@@ -105,7 +105,7 @@ module "club_host_database_administrators" {
 }
 
 module "club_host_readers" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "chess_club_host"
   access_type = "all_account_read_only"
   group_members = [
@@ -125,7 +125,7 @@ module "club_host_readers" {
 #####################
 
 module "sandbox_admins" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "sandbox"
   access_type = "admins"
   group_members = [
@@ -137,7 +137,7 @@ module "sandbox_admins" {
 }
 
 module "sandbox_readers" {
-  source = "../../modules/assume_role_group"
+  source = "../../modules/assume-role-group"
   project_name = "sandbox"
   access_type = "read_only"
   group_members = [
