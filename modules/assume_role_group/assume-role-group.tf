@@ -17,6 +17,10 @@ variable "group_members" {
   description = "The names of the IAM Users to add to the Group."
 }
 
+# There are a lot of unanticipated modify in place changes showing up in plans that switch around the account numbers.
+# Though harmless, they clutter up the plan output making it harder to verify intended changes.
+# I think this is due to the fact this var gets converted to a Set and used with a for_each, thus not preserving order. 
+# I should be able to resolve this by converting this var from a list to a map and converting the for each to use a Map instead of a Set.
 variable "assumable_role_arns" {
   type = list(string)
   description = "Used to attach one or more Project Account Role to a single Group in the Management Account."
@@ -70,3 +74,6 @@ resource "aws_iam_group_policy" "assume_role_group" {
     ]
   })
 }
+
+#   # Change this to use a Map
+
