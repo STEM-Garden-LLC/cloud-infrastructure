@@ -33,7 +33,7 @@ module "management_account_readers" {
     "bruce-lindman",
   ]
   assumable_role_arns = [
-    "arn:aws:iam::${aws_organizations_account.stem_garden_llc}:role/ReadOnly",
+    "arn:aws:iam::${aws_organizations_account.stem_garden_llc.id}:role/ReadOnly",
   ]
 }
 # resource "aws_iam_group" "sgllc_root_readonly" {
