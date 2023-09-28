@@ -24,13 +24,8 @@ resource "aws_iam_group_membership" "all_team_members" {
   )
 }
 
-resource "aws_iam_group" "management_account_readers" {
-  name = "management-account-readers"
-  path = "/"
-}
-
 resource "aws_iam_group_policy_attachment" "management_account_read_only" {
-  group      = aws_iam_group.management_account_readers.name
+  group      = aws_iam_group.all_team_members.name
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
 
