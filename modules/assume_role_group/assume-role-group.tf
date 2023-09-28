@@ -57,23 +57,30 @@ resource "aws_iam_group_membership" "assume_role_group" {
 ##   Role Attachments   ##
 ##########################
 
-resource "aws_iam_group_policy" "assume_role_group" {
-  for_each = toset(var.assumable_role_arns)
+resource "aws_iam_group_policy_attachment" "assume_role_group" {
+  for_each =  toset(var.assumable_role_arns)
 
-  name = "${local.group_name}_policy"
   group      = aws_iam_group.assume_role_group.name
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      { 
-        Sid = "AssumeRoleInMemberAccount"
-        Effect   = "Allow"
-        Action = "sts:AssumeRole"
-        Resource = "${each.value}"
-      },
-    ]
-  })
+  policy_arn = each.value
 }
+
+# resource "aws_iam_group_policy" "assume_role_group" {
 
 #   # Change this to use a Map
 
+#   for_each = toset(var.assumable_role_arns)
+
+#   name = "${local.group_name}_policy"
+#   group      = aws_iam_group.assume_role_group.name
+#   policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       { 
+#         Sid = "AssumeRoleInMemberAccount"
+#         Effect   = "Allow"
+#         Action = "sts:AssumeRole"
+#         Resource = "${each.value}"
+#       },
+#     ]
+#   })
+# }
