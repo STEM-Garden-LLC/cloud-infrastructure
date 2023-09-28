@@ -58,8 +58,8 @@ resource "aws_iam_group_membership" "management_account_readers" {
 
 module "club_host_all_account_admins" {
   source = "../../modules/assume_role_group"
-  project_name = "chess_club_hosts"
-  access_type = "admins"
+  project_name = "chess_club_host"
+  access_type = "all_account_admins"
   group_members = [
     "nigel-f-wilson",
   ]
