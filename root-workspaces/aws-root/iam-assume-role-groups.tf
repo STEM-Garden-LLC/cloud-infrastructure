@@ -62,7 +62,7 @@ module "stem_garden_all_account_admins" {
 ##  Mastery Math  ##
 ####################
 
-module "club_host_all_account_admins" {
+module "mastery_math_all_account_admins" {
   source = "../../modules/assume_role_group"
   project_name = "mastery_math"
   access_type = "all_account_admins"
