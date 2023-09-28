@@ -11,6 +11,12 @@ resource "aws_iam_user" "user" {
 resource "aws_iam_user_login_profile" "login_profile" {
   user    = aws_iam_user.user.name
   password_reset_required = true
+
+  lifecycle {
+    ignore_changes = [
+      password_reset_required
+    ]
+  }
 }
 
 output "username" {
