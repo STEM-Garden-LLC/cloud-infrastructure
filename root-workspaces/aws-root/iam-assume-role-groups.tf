@@ -45,8 +45,9 @@ module "stem_garden_all_account_admins" {
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.dev}:role/Admin",
+    "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.prod}:role/Admin",
     "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.shared}:role/Admin",
-    "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.production}:role/Admin",
+
   ]
 }
 
@@ -64,8 +65,8 @@ module "mastery_math_all_account_admins" {
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.dev}:role/Admin",
+    "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.prod}:role/Admin",
     "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.shared}:role/Admin",
-    "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.production}:role/Admin",
   ]
 }
 
