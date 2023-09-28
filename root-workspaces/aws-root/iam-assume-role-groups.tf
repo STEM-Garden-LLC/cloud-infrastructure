@@ -69,11 +69,13 @@ resource "aws_iam_group_membership" "all_team_members" {
 #   path = "/masterymath/"
 # }
 
+
+
 #########################
 ##  Club Hosting Tool  ##
 #########################
 
-module "club_host_all_accountadmins" {
+module "club_host_all_account_admins" {
   source = "../../modules/assume_role_group"
   project_name = "chess_club_hosts"
   access_type = "admins"
