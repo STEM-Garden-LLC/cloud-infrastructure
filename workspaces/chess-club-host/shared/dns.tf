@@ -15,7 +15,7 @@ resource "aws_route53_zone" "com_chessclubhost" {
 }
 
 module "acm_certificate_for_chessclubhost" {
-  provider = aws.management_account
+  providers = { aws.management_account }
   source = "../../../modules/dns-certificate"
 
   apex_domain = "chessclubhost.com"
