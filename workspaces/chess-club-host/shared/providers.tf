@@ -35,3 +35,24 @@ provider "aws" {
     }
   }
 }
+
+// management account provider
+provider "aws" {
+  alias = "management_account"
+
+  region = "us-east-1"
+  shared_config_files      = ["/Users/nigelwilson/.aws/config"]
+  shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
+
+  assume_role {
+    role_arn = "arn:aws:iam::028967336413:role/OrganizationAccountAccessRole"
+  }
+
+  default_tags {
+    tags = {
+      provisioned_by = "Terraform Cloud"
+      project        = "Chess Club Host"
+      workspace      = "Shared"
+    }
+  }
+}
