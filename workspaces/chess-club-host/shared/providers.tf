@@ -36,17 +36,13 @@ provider "aws" {
   }
 }
 
-// management account provider
+// management account provider -- simply don't assume a role
 provider "aws" {
   alias = "management_account"
 
   region = "us-east-1"
   shared_config_files      = ["/Users/nigelwilson/.aws/config"]
   shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
-
-  assume_role {
-    role_arn = "arn:aws:iam::028967336413:role/OrganizationAccountAccessRole"
-  }
 
   default_tags {
     tags = {
