@@ -24,18 +24,38 @@ resource "aws_iam_group_membership" "all_team_members" {
   )
 }
 
-module "management_account_readers" {
-  source = "../../modules/assume_role_group"
-  project_name = "management_account"
-  access_type = "read_only"
-  group_members = [
-    "nigels-test-user",
-    "bruce-lindman",
-  ]
-  assumable_role_arns = [
-    "arn:aws:iam::${aws_organizations_account.stem_garden_llc.id}:role/ReadOnly",
-  ]
+resource "aws_iam_group" "management_account_readers" {
+  name = "management-account-readers"
+  path = "/"
 }
+
+resource "aws_iam_group_policy_attachment" "management_account_read_only" {
+  group      = aws_iam_group.all_team_members.name
+  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
+resource "aws_iam_group_membership" "management_account_readers" {
+  name = "management-account-read-only-members"  
+  group = aws_iam_group.management_account_readers.name
+  users = setunion(
+    # [ aws_iam_user.nigel_wilson.name ],
+    toset([ for profile in module.users : profile.username ])
+  )
+}
+
+# module "management_account_readers" {
+#   source = "../../modules/assume_role_group"
+#   project_name = "management_account"
+#   access_type = "read_only"
+#   group_members = [
+#     "nigels-test-user",
+#     "bruce-lindman",
+#   ]
+#   assumable_role_arns = [
+#     "arn:aws:iam::${aws_organizations_account.stem_garden_llc.id}:role/ReadOnly",
+#   ]
+# }
+
 # resource "aws_iam_group" "sgllc_root_readonly" {
 #   name = "sgllc-root-readonly"
 #   path = "/"
