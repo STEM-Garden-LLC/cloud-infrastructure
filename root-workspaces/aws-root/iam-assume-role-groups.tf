@@ -43,12 +43,38 @@ resource "aws_iam_group_membership" "management_account_readers" {
 ##  STEM Garden Homepage  ##
 ############################
 
+module "stem_garden_all_account_admins" {
+  source = "../../modules/assume_role_group"
+  project_name = "stem_garden"
+  access_type = "all_account_admins"
+  group_members = [
+    "nigel-f-wilson",
+  ]
+  assumable_role_arns = [
+    "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.dev}:role/Admin",
+    "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.shared}:role/Admin",
+    "arn:aws:iam::${module.stem_garden_project_accounts.account_ids.production}:role/Admin",
+  ]
+}
 
 
 ####################
 ##  Mastery Math  ##
 ####################
 
+module "club_host_all_account_admins" {
+  source = "../../modules/assume_role_group"
+  project_name = "mastery_math"
+  access_type = "all_account_admins"
+  group_members = [
+    "nigel-f-wilson",
+  ]
+  assumable_role_arns = [
+    "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.dev}:role/Admin",
+    "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.shared}:role/Admin",
+    "arn:aws:iam::${module.mastery_math_project_accounts.account_ids.production}:role/Admin",
+  ]
+}
 
 
 
