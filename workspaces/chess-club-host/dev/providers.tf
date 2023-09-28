@@ -24,7 +24,7 @@ provider "aws" {
   shared_credentials_files = ["/Users/nigelwilson/.aws/credentials"]
 
   assume_role {
-    role_arn = "arn:aws:iam::619015162282:role/OrganizationAccountAccessRole"
+    role_arn = "arn:aws:iam::813552679689:role/OrganizationAccountAccessRole"
   }
 
   default_tags {
