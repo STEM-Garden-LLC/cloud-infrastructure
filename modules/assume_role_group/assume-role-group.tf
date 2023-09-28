@@ -66,7 +66,7 @@ resource "aws_iam_policy" "assume_role_policy" {
         Sid = "AssumeRoleInMemberAccount"
         Effect   = "Allow"
         Action = "sts:AssumeRole"
-        Resource = "$${var.assumable_role_arns}"
+        Resource = "${var.assumable_role_arns}"
       },
     ]
   })
