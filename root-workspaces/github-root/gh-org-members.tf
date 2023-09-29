@@ -7,7 +7,7 @@ resource "github_membership" "nigel_wilson" {
   role     = "admin"
 }
 
-resource "github_membership" "bruce_lindman" {
-  username = "sqlblindman"
-  role     = "member"
-}
+# resource "github_membership" "bruce_lindman" {
+#   username = "sqlblindman"
+#   role     = "member"
+# }
