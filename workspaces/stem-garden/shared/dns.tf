@@ -1,9 +1,6 @@
-import {
-  to = aws_route53_zone.org_stemgarden
-  id = "Z04644452DUB6MD4Z75A7"
-}
-
 resource "aws_route53_zone" "org_stemgarden" {
+  provider = aws.management_account
+
   comment           = "Managed by Terraform"
   delegation_set_id = null
   force_destroy     = null
@@ -20,6 +17,8 @@ resource "aws_route53_zone" "org_stemgarden" {
 # Later on the "dns-certificate" module was created to handle this process in one apply.
 
 resource "aws_acm_certificate" "org_stemgarden" {
+  provider = aws.management_account
+
   certificate_authority_arn = null
   certificate_body          = null
   certificate_chain         = null
