@@ -12,6 +12,11 @@ resource "tfe_project_variable_set" "gh_pat_to_sandbox" {
   project_id    = module.sandbox_project_and_workspaces.project_id
 }
 
+resource "tfe_project_variable_set" "gh_pat_to_stemgarden" {
+  variable_set_id = tfe_variable_set.gh_credentials.id
+  project_id    = module.stem_garden_project_and_workspaces.project_id
+}
+
 ########################
 ##   AWS Access Key   ##
 ########################
