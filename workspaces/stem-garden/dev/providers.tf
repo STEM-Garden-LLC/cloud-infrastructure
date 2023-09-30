@@ -36,3 +36,9 @@ provider "aws" {
     }
   }
 }
+
+# Default GitHub Provider
+# Configure the GitHub Provider to provision resources in stem-garden-llc account
+provider "github" {
+  owner = "stem-garden-llc"  
+}
