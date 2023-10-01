@@ -1,3 +1,4 @@
+
 variable "tfc_project" {
   type        = string
   description = "The name of the terraform cloud project this module is to be applied within."
@@ -19,14 +20,22 @@ variable "sub_domain" {
   default = ""
 }
 
+variable "aws_access_key_id" {
+  type = string
+}
+
+variable "aws_secret_access_key" {
+  type = string
+}
+
 locals {
   bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
   complete_domain = (var.sub_domain == "") ? var.apex_domain : "${var.sub_domain}.${var.apex_domain}"
 }
 
-output "bucket_name" {
-  value = aws_s3_bucket.static_site_bucket.id
-}
+# output "bucket_name" {
+#   value = aws_s3_bucket.static_site_bucket.id
+# }
 
 # output "s3_website_endpoint" {
 #   value = aws_s3_bucket_website_configuration....
