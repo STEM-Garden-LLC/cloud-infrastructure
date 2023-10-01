@@ -16,11 +16,12 @@ variable "apex_domain" {
 variable "sub_domain" {
   type        = string
   description = "Optional subdomain to prefix on the apex domain to create the address to point to CloudFront distribution."
+  default = ""
 }
 
 locals {
   bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
-  complete_domain = (var.sub_domain == null) ? var.apex_domain : "${var.sub_domain}.${var.apex_domain}"
+  complete_domain = (var.sub_domain == "") ? var.apex_domain : "${var.sub_domain}.${var.apex_domain}"
 }
 
 output "bucket_name" {
