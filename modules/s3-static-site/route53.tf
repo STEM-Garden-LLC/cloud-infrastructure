@@ -35,8 +35,8 @@ resource "aws_route53_record" "root-a" {
 # TODO -> Add bool input to optionally generate a www dist & A record
 
 # resource "aws_route53_record" "www-a" {
-#   zone_id = data.aws_route53_zone.main.zone_id
-#   name    = "www.${var.domain_name}"
+#   zone_id = aws_route53_zone.main.zone_id
+#   name    = "www.${local.complete_domain}"
 #   type    = "A"
 
 #   alias {
