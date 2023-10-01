@@ -27,8 +27,8 @@ variable "existing_hosted_zone_id" {
 
 locals {
   use_existing_hosted_zone = (var.existing_hosted_zone_id == null) ? false : true
-  hosted_zone_id = coalesce(var.existing_hosted_zone_id[0], aws_route53_zone.main.zone_id[0])
-  # hosted_zone_id = coalesce(data.aws_route53_zone.main.zone_id, aws_route53_zone.main.zone_id[0])
+  hosted_zone_id = coalesce(var.existing_hosted_zone_id, aws_route53_zone.main[0].zone_id)
+  # hosted_zone_id = coalesce(data.aws_route53_zone.main[0]zone_id, aws_route53_zone.main[0]zone_id)
 
 
   # bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
@@ -36,7 +36,7 @@ locals {
 }
 
 output "hosted_zone_id" {
-  value = coalesce(data.aws_route53_zone.main.zone_id[0], aws_route53_zone.main.zone_id[0])
+  value = coalesce(data.aws_route53_zone.main[0].zone_id, aws_route53_zone.main[0].zone_id)
 }
 
 output "validated_certificate_arn" {
