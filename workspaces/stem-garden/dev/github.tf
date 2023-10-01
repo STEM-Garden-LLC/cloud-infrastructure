@@ -9,7 +9,7 @@ resource "github_actions_secret" "aws_s3_bucket" {
 }
 
 resource "github_actions_secret" "aws_access_key_id" {
-  repository      = data.github_repository.stemgarden_dot_org
+  repository      = data.github_repository.stemgarden_dot_org.name
   secret_name     = "AWS_ACCESS_KEY_ID"
   plaintext_value = var.aws_access_key_id
 }
