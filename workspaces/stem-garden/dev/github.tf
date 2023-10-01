@@ -5,7 +5,7 @@ data "github_repository" "stemgarden_dot_org" {
 resource "github_actions_secret" "aws_s3_bucket" {
   repository      = data.github_repository.stemgarden_dot_org.name
   secret_name     = "AWS_S3_BUCKET"
-  plaintext_value  = module.static_site_s3.bucket_name
+  plaintext_value  = local.bucket_name
 }
 
 resource "github_actions_secret" "aws_access_key_id" {
