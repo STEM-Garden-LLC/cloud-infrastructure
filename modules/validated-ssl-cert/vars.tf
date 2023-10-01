@@ -36,7 +36,8 @@ locals {
 }
 
 output "hosted_zone_id" {
-  value = coalesce(data.aws_route53_zone.main[0].zone_id, aws_route53_zone.main[0].zone_id)
+  # value = coalesce(data.aws_route53_zone.main[0].zone_id, aws_route53_zone.main[0].zone_id)
+  value = aws_route53_zone.main[0].zone_id
 }
 
 output "validated_certificate_arn" {
