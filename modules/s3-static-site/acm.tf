@@ -1,12 +1,13 @@
 # SSL Certificate
 resource "aws_acm_certificate" "ssl_certificate" {
   domain_name               = local.complete_domain
-#   subject_alternative_names = ["*.${var.domain_name}"]  
-#   validation_method         = "EMAIL"
   validation_method         = "DNS"
-
-  tags = var.common_tags
-
+  
+  validation_option {
+    domain_name       = "testing.example.com"
+    validation_domain = "example.com"
+  }
+  
   lifecycle {
     create_before_destroy = true
   }

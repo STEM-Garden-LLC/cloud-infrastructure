@@ -16,7 +16,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_root_object = "index.html"
 
   aliases = ["${local.complete_domain}"]
-  # aliases = ["${local.complete_domain}", "www.${local.complete_domain}"]
 
   custom_error_response {
     error_caching_min_ttl = 0
