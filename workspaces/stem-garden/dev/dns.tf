@@ -1,5 +1,5 @@
 module "ssl_certificate" {
-  source = "../../../modules/validated-ssl-certificate"
+  source = "../../../modules/validated-ssl-cert"
 
   tfc_project = var.tfc_project
   tfc_workspace = var.tfc_workspace
