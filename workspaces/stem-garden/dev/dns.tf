@@ -1,3 +1,7 @@
+resource "aws_route53_zone" "main" {
+  name = local.complete_domain
+}
+
 module "ssl_certificate" {
   source = "../../../modules/validated-ssl-cert"
 

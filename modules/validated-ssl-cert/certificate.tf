@@ -3,7 +3,7 @@
 resource "aws_acm_certificate" "ssl_certificate" {
   domain_name               = local.complete_domain
   validation_method         = "DNS"
-#   validation_method         = "EMAIL"
+  # validation_method         = "EMAIL"
   
   validation_option {
     domain_name       = local.complete_domain
@@ -30,7 +30,7 @@ resource "aws_route53_record" "cert_validation" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = local.hosted_zone_id
+  zone_id         = var.hosted_zone_id
 }
 
 # Validate

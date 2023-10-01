@@ -19,25 +19,17 @@ variable "sub_domain" {
   default = ""
 }
 
-variable "existing_hosted_zone_id" {
+variable "hosted_zone_id" {
   type        = string
-  description = "Provide a value to use a preexisting Hosted Zone, otherwise one will be created."
-  default = null
+  description = "Provide an ID to a separately created Hosted Zone."
 }
 
 locals {
-  use_existing_hosted_zone = (var.existing_hosted_zone_id == null) ? false : true
-  hosted_zone_id = coalesce(var.existing_hosted_zone_id, aws_route53_zone.main[0].zone_id)
-  # hosted_zone_id = coalesce(data.aws_route53_zone.main[0]zone_id, aws_route53_zone.main[0]zone_id)
-
-
-  # bucket_name = "${var.tfc_project}-${var.tfc_workspace}"
   complete_domain = (var.sub_domain == "") ? var.apex_domain : "${var.sub_domain}.${var.apex_domain}"
 }
 
 output "hosted_zone_id" {
-  # value = coalesce(data.aws_route53_zone.main[0].zone_id, aws_route53_zone.main[0].zone_id)
-  value = aws_route53_zone.main[0].zone_id
+  value = aws_route53_zone.main.zone_id
 }
 
 output "validated_certificate_arn" {
