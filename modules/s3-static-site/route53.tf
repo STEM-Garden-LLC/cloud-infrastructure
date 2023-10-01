@@ -4,7 +4,6 @@
 # }
 resource "aws_route53_zone" "main" {
   name = local.complete_domain
-  tags = var.common_tags
 }
 
 # resource "aws_route53_record" "root-a" {

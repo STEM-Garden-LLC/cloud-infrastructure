@@ -4,7 +4,6 @@
 
 resource "aws_s3_bucket" "static_site_bucket" {
   bucket = local.bucket_name
-  tags = var.common_tags
 }
 
 # Website Configuration
