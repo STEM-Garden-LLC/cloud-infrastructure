@@ -18,10 +18,6 @@ locals {
   complete_domain = (var.sub_domain == "") ? var.apex_domain : "${var.sub_domain}.${var.apex_domain}"
 }
 
-output "hosted_zone_id" {
-  value = aws_route53_zone.main.zone_id
-}
-
 output "validated_certificate_arn" {
   value = aws_acm_certificate_validation.cert_validation.certificate_arn
 }
