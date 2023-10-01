@@ -6,12 +6,6 @@ module "static_site_s3" {
 
   apex_domain = "stemgarden.org"
   sub_domain = "test"
-
-  common_tags = {
-    provisioned_by = "terraform_cloud"
-    project = "sandbox"
-    workspace = "react-with-vite-test"
-  }
 }
 
 
