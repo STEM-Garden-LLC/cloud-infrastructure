@@ -54,8 +54,8 @@ module "club_host_project_accounts" {
   account_name_suffix_list = [
     "dev", 
     "prod", 
-    "shared",
-    "production"
+    # "shared",
+    # "production"
   ]
 }
 
