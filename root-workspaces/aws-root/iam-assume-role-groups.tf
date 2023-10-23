@@ -85,9 +85,9 @@ module "club_host_all_account_admins" {
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.club_host_project_accounts.account_ids.dev}:role/Admin",
-    "arn:aws:iam::${module.club_host_project_accounts.account_ids.prod}:role/Admin",
+    # "arn:aws:iam::${module.club_host_project_accounts.account_ids.prod}:role/Admin",
     # "arn:aws:iam::${module.club_host_project_accounts.account_ids.shared}:role/Admin",
-    # "arn:aws:iam::${module.club_host_project_accounts.account_ids.production}:role/Admin",
+    "arn:aws:iam::${module.club_host_project_accounts.account_ids.production}:role/Admin",
   ]
 }
 
@@ -101,8 +101,8 @@ module "club_host_database_administrators" {
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.club_host_project_accounts.account_ids.dev}:role/DBA",
-    "arn:aws:iam::${module.club_host_project_accounts.account_ids.prod}:role/Admin",
-    # "arn:aws:iam::${module.club_host_project_accounts.account_ids.production}:role/DBA",
+    # "arn:aws:iam::${module.club_host_project_accounts.account_ids.prod}:role/Admin",
+    "arn:aws:iam::${module.club_host_project_accounts.account_ids.production}:role/DBA",
   ]
 }
 
@@ -116,9 +116,9 @@ module "club_host_readers" {
   ]
   assumable_role_arns = [
     "arn:aws:iam::${module.club_host_project_accounts.account_ids.dev}:role/ReadOnly",
-    "arn:aws:iam::${module.club_host_project_accounts.account_ids.prod}:role/ReadOnly",
+    # "arn:aws:iam::${module.club_host_project_accounts.account_ids.prod}:role/ReadOnly",
     # "arn:aws:iam::${module.club_host_project_accounts.account_ids.shared}:role/ReadOnly",
-    # "arn:aws:iam::${module.club_host_project_accounts.account_ids.production}:role/ReadOnly"
+    "arn:aws:iam::${module.club_host_project_accounts.account_ids.production}:role/ReadOnly"
   ]
 }
 
