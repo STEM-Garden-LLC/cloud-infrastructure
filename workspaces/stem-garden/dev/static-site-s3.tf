@@ -1,9 +1,12 @@
-# module "static_site_s3" {
-#   source = "../../../modules/s3-static-site"
+module "static_site_s3" {
+  source = "../../../modules/s3-static-site"
 
-#   domain_name = "dev.stemgarden.org"
+  tfc_project = var.tfc_project
+  tfc_workspace = var.tfc_workspace
 
-#   use_preexisting_bucket = false
-  
-  
-# }
+  bucket_name = local.bucket_name
+
+  apex_domain = var.apex_domain
+  sub_domain = var.sub_domain
+
+}
