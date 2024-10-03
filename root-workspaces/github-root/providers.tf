@@ -28,7 +28,12 @@ variable "github_token" {
 # Configure the GitHub Provider to provision resources in stem-garden-llc account
 provider "github" {
   owner = "stem-garden-llc"
-  token = var.github_token
+  # token = var.github_token
+  app_auth {
+    # id = var.app_id
+    # installation_id = var.installation_id
+    # pem_file = var.app_pem_file
+  }
 }
 
 # Must Specify to use this provider
